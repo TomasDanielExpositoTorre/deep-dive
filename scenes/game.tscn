@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1k6sxvfocq1y"]
+
+[ext_resource type="PackedScene" uid="uid://ckl8ppr5no5lw" path="res://scenes/personajes/jellyfish.tscn" id="1_1e4ga"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Jellyfish" parent="." instance=ExtResource("1_1e4ga")]
+z_index = 5
+position = Vector2(598, 341)
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="Jellyfish"]
+position_smoothing_enabled = true
