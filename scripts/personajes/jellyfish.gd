@@ -3,6 +3,12 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+@onready var player_lives: Node2D = %PlayerLives
+
+
+
+func _ready():
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -29,3 +35,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
+
+
+func _on_remove_health_pressed() -> void:
+	player_lives.take_damage()
+
+
+func _on_add_health_pressed() -> void:
+	player_lives.heal_damage()

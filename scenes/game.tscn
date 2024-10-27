@@ -1,13 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1k6sxvfocq1y"]
+[gd_scene load_steps=3 format=3 uid="uid://d1k6sxvfocq1y"]
 
-[ext_resource type="PackedScene" uid="uid://ckl8ppr5no5lw" path="res://scenes/personajes/jellyfish.tscn" id="1_1e4ga"]
+[ext_resource type="PackedScene" uid="uid://ckl8ppr5no5lw" path="res://scenes/personajes/jellyfish-testplayer.tscn" id="1_snik1"]
+[ext_resource type="PackedScene" uid="uid://c4nvmu6pm2yly" path="res://scenes/objetos/lives.tscn" id="2_in7yb"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Jellyfish" parent="." instance=ExtResource("1_1e4ga")]
-z_index = 5
-position = Vector2(598, 341)
-motion_mode = 1
+[node name="Jellyfish" parent="." instance=ExtResource("1_snik1")]
+position = Vector2(576, 328)
 
 [node name="Camera2D" type="Camera2D" parent="Jellyfish"]
+position = Vector2(0, -6)
 position_smoothing_enabled = true
+
+[node name="AddHealth" type="Button" parent="."]
+offset_left = 171.0
+offset_top = 297.0
+offset_right = 390.0
+offset_bottom = 416.0
+text = "Add Health"
+
+[node name="RemoveHealth" type="Button" parent="."]
+offset_left = 881.0
+offset_top = 316.0
+offset_right = 1118.0
+offset_bottom = 422.0
+text = "Remove Health"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerLives" parent="CanvasLayer" instance=ExtResource("2_in7yb")]
+unique_name_in_owner = true
+position = Vector2(0, 1)
+
+[connection signal="pressed" from="AddHealth" to="Jellyfish" method="_on_add_health_pressed"]
+[connection signal="pressed" from="RemoveHealth" to="Jellyfish" method="_on_remove_health_pressed"]
