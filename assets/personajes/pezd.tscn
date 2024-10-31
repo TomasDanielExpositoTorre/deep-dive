@@ -1,0 +1,106 @@
+[gd_scene load_steps=19 format=3 uid="uid://chojlvmxarqhg"]
+
+[ext_resource type="Script" path="res://assets/personajes/pez.gd" id="1_ijt2b"]
+[ext_resource type="Texture2D" uid="uid://ccw23a6dwjejl" path="res://assets/personajes/sprites_pez_separados/pezder1.png" id="2_b4kq5"]
+[ext_resource type="Texture2D" uid="uid://bsfiobkscej0c" path="res://assets/personajes/sprites_pez_separados/pezder2.png" id="3_k35wr"]
+[ext_resource type="Texture2D" uid="uid://vtmydjvlw37t" path="res://assets/personajes/sprites_pez_separados/pezder3.png" id="4_hrv1s"]
+[ext_resource type="Texture2D" uid="uid://cnyq1k4clruys" path="res://assets/personajes/sprites_pez_separados/pezder4.png" id="5_evv0b"]
+[ext_resource type="Texture2D" uid="uid://c2vtx8bp11uyo" path="res://assets/personajes/sprites_pez_separados/pezder5.png" id="6_te6ij"]
+[ext_resource type="Texture2D" uid="uid://cvv6e6ied1n2x" path="res://assets/personajes/sprites_pez_separados/pezdercabreo.png" id="7_0yxht"]
+[ext_resource type="Texture2D" uid="uid://bamqq68eoyhke" path="res://assets/personajes/sprites_pez_separados/pezv4.png" id="8_38742"]
+[ext_resource type="Texture2D" uid="uid://jc4df1ene42r" path="res://assets/personajes/sprites_pez_separados/pezv3.png" id="9_pcuq4"]
+[ext_resource type="Texture2D" uid="uid://dawsnscnagb0s" path="res://assets/personajes/sprites_pez_separados/pezv2.png" id="10_c4tig"]
+[ext_resource type="Texture2D" uid="uid://cnicmabwv5rjm" path="res://assets/personajes/sprites_pez_separados/pezizq1.png" id="11_2ibuy"]
+[ext_resource type="Texture2D" uid="uid://v873xavatmqy" path="res://assets/personajes/sprites_pez_separados/pezizq2.png" id="12_7l4a0"]
+[ext_resource type="Texture2D" uid="uid://cgvvaw0uod2og" path="res://assets/personajes/sprites_pez_separados/pezizq3.png" id="13_0rqws"]
+[ext_resource type="Texture2D" uid="uid://ca5f3uqv6te5y" path="res://assets/personajes/sprites_pez_separados/pezizq4.png" id="14_b3584"]
+[ext_resource type="Texture2D" uid="uid://1grjyas1yyx1" path="res://assets/personajes/sprites_pez_separados/pezizq5.png" id="15_hqmh8"]
+[ext_resource type="Texture2D" uid="uid://xsab513ejh2d" path="res://assets/personajes/sprites_pez_separados/pezizqcabreo.png" id="16_3knph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1c4k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_db03g"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b4kq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k35wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hrv1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_evv0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_te6ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0yxht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hrv1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_38742")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pcuq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c4tig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2ibuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7l4a0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0rqws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_b3584")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hqmh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2ibuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3knph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c4tig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pcuq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_38742")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="PEZ" type="CharacterBody2D"]
+use_parent_material = true
+disable_mode = 2
+motion_mode = 1
+script = ExtResource("1_ijt2b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b1c4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 7
+use_parent_material = true
+position = Vector2(502, 208)
+sprite_frames = SubResource("SpriteFrames_db03g")
+frame = 14
+frame_progress = 0.671369
