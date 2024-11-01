@@ -5,8 +5,11 @@ class_name Player
 Class values
 """
 const SPEED = 400.0
+var vulnerable := true
+
 @onready var lives: Lives = %Lives
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var invincibility_timer: Timer = $InvincibilityTimer
 
 
 """
@@ -50,13 +53,20 @@ func remove_health():
 	"""
 	Take one damage.
 	"""
-	var tween = create_tween()
-	tween.tween_property(sprite, "material:shader_parameter/amount", 1.0, 0.0)
-	tween.tween_property(sprite, "material:shader_parameter/amount", 0.0, 0.1).set_delay(0.2)
-	lives.take_damage()
-	
+	if vulnerable:
+		var tween = create_tween()
+		tween.tween_property(sprite, "material:shader_parameter/amount", 1.0, 0.0)
+		tween.tween_property(sprite, "material:shader_parameter/amount", 0.0, 0.1).set_delay(0.2)
+		lives.take_damage()
+		vulnerable = false
+		invincibility_timer.start()
+		
 func restore_health():
 	"""
 	Heal one damage
 	"""
 	lives.heal_damage()
+
+
+func _on_invincibility_timer_timeout() -> void:
+	vulnerable = true

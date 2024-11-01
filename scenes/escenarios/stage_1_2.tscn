@@ -51,7 +51,7 @@ position = Vector2(908, 197)
 collision_mask = 14
 
 [node name="Camera2D" type="Camera2D" parent="Patricio"]
-zoom = Vector2(0.63, 0.63)
+zoom = Vector2(0.64, 0.64)
 limit_left = 0
 limit_top = 0
 limit_right = 1800
@@ -67,9 +67,9 @@ shadow_enabled = true
 texture = ExtResource("2_jt1jf")
 texture_scale = 0.25
 
-[node name="Fixed Objects" type="CanvasLayer" parent="."]
+[node name="Fixed" type="CanvasLayer" parent="."]
 
-[node name="Lives" parent="Fixed Objects" instance=ExtResource("3_6wyvg")]
+[node name="Lives" parent="Fixed" instance=ExtResource("3_6wyvg")]
 unique_name_in_owner = true
 
 [node name="Background" type="StaticBody2D" parent="."]
@@ -104,6 +104,36 @@ shape = SubResource("WorldBoundaryShape2D_l3ov6")
 [node name="Darkness" type="CanvasModulate" parent="Background"]
 visible = false
 color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="Jellyfish" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(1310, 4691)
+
+[node name="Jellyfish2" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(1576, 5978)
+
+[node name="Jellyfish3" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(889, 6583)
+
+[node name="Jellyfish4" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(1584, 7630)
+
+[node name="Jellyfish5" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(849, 7033)
+
+[node name="Jellyfish6" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(583, 7822)
+
+[node name="Jellyfish7" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(284, 8425)
+
+[node name="Jellyfish8" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(1449, 9375)
+
+[node name="Jellyfish9" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(1008, 9910)
+
+[node name="Jellyfish10" parent="Background" instance=ExtResource("7_ltkka")]
+position = Vector2(1375, 10526)
 
 [node name="Background Objects" type="StaticBody2D" parent="."]
 position = Vector2(907, 10315)
@@ -165,38 +195,58 @@ build_mode = 1
 polygon = PackedVector2Array(900, 5655, 900, 4618, 894, 4618, 894, 4619.3, 815.6, 4635, 812.4, 4635, 801.4, 4642, 799.2, 4642, 784, 4657.2, 784, 4658, 778.9, 4658, 776.9, 4661, 775.6, 4661, 757.6, 4716, 756.4, 4716, 741, 4779.8, 741, 4784.5, 721, 4838.6, 721, 4842.2, 676, 4894.3, 676, 4896.1, 647, 4924.2, 647, 4925.1, 600, 4966.1, 600, 4966.7, 588.5, 4973, 586.8, 4973, 564.8, 5016, 562.6, 5016, 564, 5023.4, 564, 5024.5, 544.6, 5079, 543.4, 5079, 535, 5115.8, 535, 5119.5, 530, 5129.5, 530, 5131.4, 484, 5198.4, 484, 5200.2, 475.2, 5209, 473.9, 5209, 442, 5263.5, 421, 5279, 405.6, 5285, 402, 5285, 397, 5292, 395.5, 5292, 390.5, 5311, 389, 5311, 389, 5319, 393, 5322, 393, 5324.1, 402, 5330.1, 402, 5333.2, 408.5, 5330, 412.6, 5330, 423.6, 5334, 427.5, 5334, 435, 5338.1, 435, 5339.4, 469.7, 5351, 472.5, 5351, 489, 5360.1, 489, 5363, 496.5, 5360, 498.5, 5360, 509, 5366.1, 509, 5368.2, 572, 5362.8, 575.7, 5364, 578, 5364, 581, 5367.7, 581, 5369.2, 591.5, 5375, 593.1, 5375, 606.2, 5387, 608.1, 5387, 627.1, 5409, 628, 5409, 675, 5477, 675.8, 5477, 689, 5501.5, 689, 5503.6, 706, 5527.6, 706, 5529.7, 728, 5559, 730.7, 5559, 741, 5577.6, 741, 5579.8, 751, 5590.7, 751, 5592.3, 775, 5602.3, 775, 5603.5, 834.7, 5622, 837.4, 5622, 898.5, 5655)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-1, 0)
 occluder = SubResource("OccluderPolygon2D_027ug")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_yjuoo")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_042u7")
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_438g1")
 
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_au0en")
 
 [node name="LightOccluder2D6" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_maqed")
 
 [node name="LightOccluder2D7" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_mi4jh")
 
 [node name="LightOccluder2D8" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_qa5dw")
 
 [node name="LightOccluder2D9" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_bragc")
 
 [node name="LightOccluder2D10" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_4bmr4")
 
 [node name="LightOccluder2D11" type="LightOccluder2D" parent="Background Objects"]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_skve8")
 
 [node name="Jellyfish" parent="." instance=ExtResource("7_ltkka")]
-position = Vector2(1455, 845)
+position = Vector2(1355, 1646)
+
+[node name="Jellyfish2" parent="." instance=ExtResource("7_ltkka")]
+position = Vector2(1348, 2652)
+
+[node name="Jellyfish3" parent="." instance=ExtResource("7_ltkka")]
+position = Vector2(1370, 3110)
+
+[node name="Jellyfish4" parent="." instance=ExtResource("7_ltkka")]
+position = Vector2(473, 3942)
