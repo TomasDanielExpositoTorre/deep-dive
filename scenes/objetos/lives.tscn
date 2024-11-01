@@ -12,17 +12,17 @@ bg_color = Color(0.827451, 0.866667, 0.109804, 1)
 [node name="Lives" type="Node2D"]
 script = ExtResource("1_ecqpu")
 
-[node name="Live1" type="Sprite2D" parent="."]
+[node name="Life1" type="Sprite2D" parent="."]
 position = Vector2(992, 32)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_m6lhc")
 
-[node name="Live2" type="Sprite2D" parent="."]
+[node name="Life2" type="Sprite2D" parent="."]
 position = Vector2(1056, 32)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_m6lhc")
 
-[node name="Live3" type="Sprite2D" parent="."]
+[node name="Life3" type="Sprite2D" parent="."]
 position = Vector2(1120, 32)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_m6lhc")
