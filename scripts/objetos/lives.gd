@@ -4,7 +4,6 @@ class_name Lives
 """
 Class values
 """
-var lives := 3
 
 @onready var healthbar: ProgressBar = $Healthbar
 @onready var life_1: Sprite2D = $Life1
@@ -34,10 +33,10 @@ func take_damage():
 	healthbar.value = clamp(healthbar.value-1, healthbar.min_value, healthbar.max_value)
 	
 	# Remove life and restore health bar
-	if lives > 0 and healthbar.value == 0:
-		lives -= 1
+	if Lifecounter.lives > 0 and healthbar.value == 0:
+		Lifecounter.lives -= 1
 		healthbar.value = healthbar.max_value
-	
+		get_tree().reload_current_scene()
 	# U is ded
 	elif healthbar.value == 0:
 		print("You lost the game my pana")
@@ -52,9 +51,12 @@ func _physics_process(delta: float):
 	"""
 	Hides life sprites as you lose them.
 	"""
-	if lives == 2:
-		life_3.hide()	
-	if lives == 1:
+	if Lifecounter.lives == 2:
+		life_3.hide()
+	if Lifecounter.lives == 1:
+		life_3.hide()
 		life_2.hide()	
-	if lives == 0:
+	if Lifecounter.lives == 0:
+		life_3.hide()
+		life_2.hide()
 		life_1.hide()	
