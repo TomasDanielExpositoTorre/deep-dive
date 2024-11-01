@@ -9,6 +9,8 @@ var target = position
 
 func _input(_event):
 
+        # Poner el nombre definitivo del nodo del jugador
+	
 	target = %CharacterBody2D.position
 
 func _physics_process(_delta):
