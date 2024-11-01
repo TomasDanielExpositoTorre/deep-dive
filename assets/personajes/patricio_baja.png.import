@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crabbhuoqsma6"
-path="res://.godot/imported/patricio_baja.png-fa51137bc9c639b73a3786984d8b69e7.ctex"
+path="res://.godot/imported/patricio_baja.png-54dcf3e6c5c6ad774135c32b590b81a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/patricio_baja.png"
-dest_files=["res://.godot/imported/patricio_baja.png-fa51137bc9c639b73a3786984d8b69e7.ctex"]
+source_file="res://assets/personajes/patricio_baja.png"
+dest_files=["res://.godot/imported/patricio_baja.png-54dcf3e6c5c6ad774135c32b590b81a8.ctex"]
 
 [params]
 

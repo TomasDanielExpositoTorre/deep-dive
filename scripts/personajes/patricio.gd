@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var player_lives: Node2D = %PlayerLives
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 
@@ -31,8 +32,9 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("ui_up", "ui_down")
 	if direction:
 		velocity.y = direction * SPEED
+		animated_sprite.play("spin")
 	else:
-		velocity.y = move_toward(velocity.x, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	move_and_slide()
 

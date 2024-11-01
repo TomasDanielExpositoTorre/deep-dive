@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce8dolf67xvjs"
-path="res://.godot/imported/patricio_sube.png-2bbf25b15b0dd7d55b48a164a2112569.ctex"
+path="res://.godot/imported/patricio_sube.png-8a342c646afccd0c500e8861d24ceb7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/patricio_sube.png"
-dest_files=["res://.godot/imported/patricio_sube.png-2bbf25b15b0dd7d55b48a164a2112569.ctex"]
+source_file="res://assets/personajes/patricio_sube.png"
+dest_files=["res://.godot/imported/patricio_sube.png-8a342c646afccd0c500e8861d24ceb7d.ctex"]
 
 [params]
 

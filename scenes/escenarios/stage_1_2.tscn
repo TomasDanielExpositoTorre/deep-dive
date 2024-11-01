@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cn2g7l343xdxt"]
 
 [ext_resource type="Texture2D" uid="uid://drd5feil7b323" path="res://assets/escenarios/stage-2.png" id="1_trjy3"]
-[ext_resource type="PackedScene" uid="uid://ckl8ppr5no5lw" path="res://scenes/personajes/jellyfish-testplayer.tscn" id="2_a2324"]
+[ext_resource type="PackedScene" uid="uid://d2ybjyjhxi2ww" path="res://scenes/personajes/patricio.tscn" id="2_1atyj"]
 [ext_resource type="Texture2D" uid="uid://dixd5m0wa26cw" path="res://assets/objetos/LightSprite.png" id="2_jt1jf"]
 [ext_resource type="PackedScene" uid="uid://c4nvmu6pm2yly" path="res://scenes/objetos/lives.tscn" id="3_6wyvg"]
 [ext_resource type="PackedScene" uid="uid://dc0nksgjd3hd2" path="res://scenes/personajes/jellyfish-enemy.tscn" id="5_iqn5r"]
@@ -74,14 +74,11 @@ shape = SubResource("WorldBoundaryShape2D_l3ov6")
 [node name="Darkness" type="CanvasModulate" parent="Level"]
 color = Color(0.288518, 0.288518, 0.288518, 1)
 
-[node name="Fixed Objects" type="CanvasLayer" parent="."]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_1atyj")]
+position = Vector2(686, 119)
 
-[node name="Lives" parent="Fixed Objects" instance=ExtResource("3_6wyvg")]
-
-[node name="test-player" parent="." instance=ExtResource("2_a2324")]
-position = Vector2(944, 360)
-
-[node name="Camera2D" type="Camera2D" parent="test-player"]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(258, 241)
 zoom = Vector2(0.63, 0.63)
 limit_left = 0
 limit_top = 0
@@ -89,24 +86,18 @@ limit_right = 1800
 limit_bottom = 20000
 position_smoothing_enabled = true
 
-[node name="PointLight2D" type="PointLight2D" parent="test-player"]
-position = Vector2(2.28882e-05, -7.62939e-06)
+[node name="Dim Light" type="PointLight2D" parent="CharacterBody2D"]
+position = Vector2(258, 241)
 scale = Vector2(11.202, 11.202)
-energy = 0.4
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = ExtResource("2_jt1jf")
-texture_scale = 0.1
-
-[node name="PointLight2D2" type="PointLight2D" parent="test-player"]
-position = Vector2(2.28882e-05, -7.62939e-06)
-scale = Vector2(11.202, 11.202)
-energy = 0.9
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("2_jt1jf")
-texture_scale = 0.15
+texture_scale = 0.2
+
+[node name="Fixed Objects" type="CanvasLayer" parent="."]
+
+[node name="Lives" parent="Fixed Objects" instance=ExtResource("3_6wyvg")]
 
 [node name="Jellyfish" parent="." instance=ExtResource("5_iqn5r")]
 position = Vector2(967, 1540)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://ckl8ppr5no5lw"]
 
-[ext_resource type="Script" path="res://scripts/personajes/jellyfish.gd" id="1_4mssy"]
+[ext_resource type="Script" path="res://scripts/personajes/patricio.gd" id="1_4mssy"]
 [ext_resource type="Texture2D" uid="uid://mbx3mm2n48ej" path="res://assets/personajes/jellyfish-done.svg" id="2_3yvu8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgeuy"]
