@@ -14,7 +14,7 @@ Class values
 Class functions
 """
 func _ready() -> void:
-	set_health(3)
+	set_health(5)
 
 func set_health(h):
 	"""
@@ -32,7 +32,7 @@ func take_damage():
 	# Take damage
 	healthbar.value = clamp(healthbar.value-1, healthbar.min_value, healthbar.max_value)
 	
-	# Remove life and restore health bar
+	# Reload scene maintaining number of lives
 	if Lifecounter.lives > 0 and healthbar.value == 0:
 		Lifecounter.lives -= 1
 		healthbar.value = healthbar.max_value

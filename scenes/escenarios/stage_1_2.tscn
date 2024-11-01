@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn2g7l343xdxt"]
+[gd_scene load_steps=21 format=3 uid="uid://cn2g7l343xdxt"]
 
 [ext_resource type="Texture2D" uid="uid://drd5feil7b323" path="res://assets/escenarios/stage-2.png" id="1_trjy3"]
 [ext_resource type="PackedScene" uid="uid://d2ybjyjhxi2ww" path="res://scenes/personajes/patricio.tscn" id="2_1atyj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ci2xcrx5m3f3a" path="res://assets/objetos/stage-2-rocks.png" id="6_okvge"]
 [ext_resource type="PackedScene" uid="uid://dc0nksgjd3hd2" path="res://scenes/personajes/jellyfish.tscn" id="7_ltkka"]
 [ext_resource type="Texture2D" uid="uid://bmre6oe8jo8fd" path="res://assets/escenarios/stage-borders.png" id="7_qbp03"]
+[ext_resource type="PackedScene" uid="uid://dubynefjfu342" path="res://scenes/objetos/blob.tscn" id="8_6xdgu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3ov6"]
 distance = 32.0
@@ -102,38 +103,7 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_l3ov6")
 
 [node name="Darkness" type="CanvasModulate" parent="Background"]
-visible = false
 color = Color(0.288518, 0.288518, 0.288518, 1)
-
-[node name="Jellyfish" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(1310, 4691)
-
-[node name="Jellyfish2" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(1576, 5978)
-
-[node name="Jellyfish3" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(889, 6583)
-
-[node name="Jellyfish4" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(1584, 7630)
-
-[node name="Jellyfish5" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(849, 7033)
-
-[node name="Jellyfish6" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(583, 7822)
-
-[node name="Jellyfish7" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(284, 8425)
-
-[node name="Jellyfish8" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(1449, 9375)
-
-[node name="Jellyfish9" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(1008, 9910)
-
-[node name="Jellyfish10" parent="Background" instance=ExtResource("7_ltkka")]
-position = Vector2(1375, 10526)
 
 [node name="Background Objects" type="StaticBody2D" parent="."]
 position = Vector2(907, 10315)
@@ -141,6 +111,7 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="rocks" type="Sprite2D" parent="Background Objects"]
+z_index = 190
 texture = ExtResource("6_okvge")
 
 [node name="borders" type="Sprite2D" parent="Background Objects"]
@@ -239,14 +210,102 @@ occluder = SubResource("OccluderPolygon2D_4bmr4")
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_skve8")
 
-[node name="Jellyfish" parent="." instance=ExtResource("7_ltkka")]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Jellyfish2" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(1576, 5978)
+
+[node name="Jellyfish3" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(889, 6583)
+
+[node name="Jellyfish6" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(583, 7822)
+
+[node name="Jellyfish7" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(284, 8425)
+
+[node name="Jellyfish8" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(1449, 9375)
+
+[node name="Jellyfish9" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(1008, 9910)
+
+[node name="Jellyfish10" parent="Enemies" instance=ExtResource("7_ltkka")]
+position = Vector2(1375, 10526)
+
+[node name="Jellyfish11" parent="Enemies" instance=ExtResource("7_ltkka")]
 position = Vector2(1355, 1646)
 
-[node name="Jellyfish2" parent="." instance=ExtResource("7_ltkka")]
+[node name="Jellyfish12" parent="Enemies" instance=ExtResource("7_ltkka")]
 position = Vector2(1348, 2652)
 
-[node name="Jellyfish3" parent="." instance=ExtResource("7_ltkka")]
+[node name="Jellyfish13" parent="Enemies" instance=ExtResource("7_ltkka")]
 position = Vector2(1370, 3110)
 
-[node name="Jellyfish4" parent="." instance=ExtResource("7_ltkka")]
+[node name="Jellyfish14" parent="Enemies" instance=ExtResource("7_ltkka")]
 position = Vector2(473, 3942)
+
+[node name="Blob12" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(808, 6821)
+
+[node name="Blob11" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1031, 6177)
+
+[node name="Blob10" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1414, 6395)
+
+[node name="Blob9" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(198, 5614)
+
+[node name="Blob8" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(111, 4842)
+
+[node name="Blob7" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(479, 4267)
+
+[node name="Blob6" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(825, 3369)
+
+[node name="Blob5" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1499, 4085)
+
+[node name="Blob4" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(843, 2047)
+
+[node name="Blob3" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1721, 3899)
+
+[node name="Blob2" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1680, 3517)
+
+[node name="Blob" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(201, 3714)
+
+[node name="Blob13" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(392, 3337)
+
+[node name="Blob14" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(300, 5048)
+
+[node name="Blob15" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1412, 7480)
+
+[node name="Blob16" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1690, 7674)
+
+[node name="Blob17" parent="Enemies" instance=ExtResource("8_6xdgu")]
+position = Vector2(1682, 8039)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 1323.0
+offset_top = 4568.0
+offset_right = 1408.0
+offset_bottom = 4603.0
+text = "TIBURON"
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 643.0
+offset_top = 7222.0
+offset_right = 728.0
+offset_bottom = 7257.0
+text = "TIBURON"

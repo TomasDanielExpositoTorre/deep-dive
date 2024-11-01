@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	
 	# Determine movement speed
 	if sprite.animation != "attack-buildup" and player_detected:
-		position.x += (direction * SPEED * delta * 2)
+		position.x += (direction * SPEED * delta * 1.6)
 	else:
 		position.x += (direction * SPEED * delta)
 
