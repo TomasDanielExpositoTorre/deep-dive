@@ -9,7 +9,7 @@ var target = position
 
 func _input(_event):
 
-	target = get_global_mouse_position()
+	target = %CharacterBody2D.position
 
 func _physics_process(_delta):
 	
