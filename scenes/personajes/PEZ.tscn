@@ -1,0 +1,134 @@
+[gd_scene load_steps=18 format=3 uid="uid://chhwlrkraryhd"]
+
+[ext_resource type="Script" path="res://PEZ.gd" id="1_irfjf"]
+[ext_resource type="Texture2D" uid="uid://boht2vdybpy8n" path="res://assets/personajes/sprites_pez_separados/file(10).png" id="2_hng53"]
+[ext_resource type="Texture2D" uid="uid://bp3jxlb0mcaum" path="res://assets/personajes/sprites_pez_separados/file(11).png" id="3_8mqiy"]
+[ext_resource type="Texture2D" uid="uid://d0ogcijm381ey" path="res://assets/personajes/sprites_pez_separados/file(12).png" id="4_6s7fh"]
+[ext_resource type="Texture2D" uid="uid://dmboouedv0vue" path="res://assets/personajes/sprites_pez_separados/file44.png" id="5_kbou2"]
+[ext_resource type="Texture2D" uid="uid://cmyc4mswp3dgu" path="res://assets/personajes/sprites_pez_separados/file(1).png" id="6_27gye"]
+[ext_resource type="Texture2D" uid="uid://x2xh4tx4u1ux" path="res://assets/personajes/sprites_pez_separados/file(2).png" id="7_laybt"]
+[ext_resource type="Texture2D" uid="uid://bdvy28yxdtbou" path="res://assets/personajes/sprites_pez_separados/file(3).png" id="8_5vcje"]
+[ext_resource type="Texture2D" uid="uid://dk4ngu4ftf40c" path="res://assets/personajes/sprites_pez_separados/pezder1.png" id="9_frt2c"]
+[ext_resource type="Texture2D" uid="uid://dy1a8sau848ee" path="res://assets/personajes/sprites_pez_separados/file(1)s.png" id="10_08kgo"]
+[ext_resource type="Texture2D" uid="uid://b3ml2nohctydg" path="res://assets/personajes/sprites_pez_separados/file(5).png" id="11_hd8nk"]
+[ext_resource type="Texture2D" uid="uid://bh46lcxaybbu4" path="res://assets/personajes/sprites_pez_separados/file(7).png" id="12_yb6ob"]
+[ext_resource type="Texture2D" uid="uid://rtc3la1evsgt" path="res://assets/personajes/sprites_pez_separados/file(8).png" id="13_d8ddu"]
+[ext_resource type="Texture2D" uid="uid://bhkus3alu6tbi" path="res://assets/personajes/sprites_pez_separados/file(9).png" id="14_qpa55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uatg1"]
+resource_local_to_scene = true
+custom_solver_bias = 0.02
+size = Vector2(192.75, 107)
+
+[sub_resource type="GDScript" id="GDScript_kei55"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbpag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6s7fh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8mqiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hng53")
+}],
+"loop": true,
+"name": &"centrDI",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hng53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8mqiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6s7fh")
+}],
+"loop": true,
+"name": &"centrID",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_frt2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kbou2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_laybt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_27gye")
+}],
+"loop": true,
+"name": &"der",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_laybt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5vcje")
+}],
+"loop": true,
+"name": &"dercbr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_08kgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hd8nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d8ddu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yb6ob")
+}],
+"loop": true,
+"name": &"izq",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_d8ddu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qpa55")
+}],
+"loop": true,
+"name": &"izqcbr",
+"speed": 5.0
+}]
+script = SubResource("GDScript_kei55")
+
+[node name="PEZ" type="CharacterBody2D"]
+use_parent_material = true
+position = Vector2(426, -430)
+disable_mode = 2
+motion_mode = 1
+platform_on_leave = 1
+script = ExtResource("1_irfjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+physics_interpolation_mode = 1
+top_level = true
+texture_filter = 1
+position = Vector2(421.625, -423)
+shape = SubResource("RectangleShape2D_uatg1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-93, -44)
+scale = Vector2(1.00266, 1)
+sprite_frames = SubResource("SpriteFrames_kbpag")
+animation = &"dercbr"
+centered = false
