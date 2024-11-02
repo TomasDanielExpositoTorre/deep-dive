@@ -190,8 +190,8 @@ collision_layer = 4
 script = ExtResource("1_u430q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-light_mask = 2
-visibility_layer = 2
+light_mask = 4
+visibility_layer = 4
 material = SubResource("CanvasItemMaterial_7v8rn")
 position = Vector2(-3.8147e-06, 3.8147e-06)
 rotation = 0.785398

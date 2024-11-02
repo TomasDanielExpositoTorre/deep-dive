@@ -52,6 +52,10 @@ move_right={
 
 [layer_names]
 
+2d_render/layer_1="Player"
+2d_render/layer_2="Objects"
+2d_render/layer_3="Enemies"
+2d_render/layer_4="Background"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Objects"
 2d_physics/layer_3="Enemies"

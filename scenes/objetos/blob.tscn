@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dubynefjfu342"]
+[gd_scene load_steps=16 format=3 uid="uid://dubynefjfu342"]
 
 [ext_resource type="Script" path="res://scripts/objetos/blob.gd" id="1_h02id"]
 [ext_resource type="Texture2D" uid="uid://ds42jddpbuiy7" path="res://assets/objetos/Blob.png" id="1_rssyi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pregm"]
+light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_suaud"]
 atlas = ExtResource("1_rssyi")
@@ -146,6 +149,9 @@ collision_layer = 2
 script = ExtResource("1_h02id")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_pregm")
 sprite_frames = SubResource("SpriteFrames_4molm")
 animation = &"attack"
 autoplay = "idle"
