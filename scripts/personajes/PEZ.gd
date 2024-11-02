@@ -40,15 +40,8 @@ func _physics_process(_delta):
 				if position.x < target.x:	
 					$AnimatedSprite2D.flip_h = false
 					$AnimatedSprite2D.play("cabreado")
-
 				if position.x > target.x:	
-<<<<<<< HEAD
 					$AnimatedSprite2D.flip_h = true
 					$AnimatedSprite2D.play("cabreado")
 				%Patricio.remove_health()
-=======
-					$AnimatedSprite2D.play("izqcbr")
-
-				%Patricio.remove_health()
 				
->>>>>>> 27b31daf921bb38abd30cb913803e39a99ad6da0
