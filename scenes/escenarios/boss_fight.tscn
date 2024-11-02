@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://djtu0d2sb2beg"]
+
+[ext_resource type="Texture2D" uid="uid://daiooa0gw01ja" path="res://assets/escenarios/fondo_de_bikini.png" id="1_biglg"]
+[ext_resource type="PackedScene" uid="uid://c4nvmu6pm2yly" path="res://scenes/objetos/lives.tscn" id="2_545hm"]
+[ext_resource type="PackedScene" uid="uid://cuy6cf1nj0y8d" path="res://scenes/personajes/patricio-tryhard.tscn" id="2_gurhi"]
+[ext_resource type="PackedScene" uid="uid://4wapmx0jm877" path="res://scenes/personajes/plankton.tscn" id="3_o7qxb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m80is"]
+distance = -180.0
+
+[node name="BossFight" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+offset_right = 1156.0
+offset_bottom = 650.0
+texture = ExtResource("1_biglg")
+expand_mode = 1
+
+[node name="wall-lower" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 469)
+shape = SubResource("WorldBoundaryShape2D_m80is")
+
+[node name="wall-upper" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 179)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_m80is")
+
+[node name="Fixed" type="CanvasLayer" parent="."]
+
+[node name="Lives" parent="Fixed" instance=ExtResource("2_545hm")]
+unique_name_in_owner = true
+
+[node name="Patricio-tryhard" parent="." instance=ExtResource("2_gurhi")]
+position = Vector2(56, 311)
+
+[node name="Plankton" parent="." instance=ExtResource("3_o7qxb")]
+position = Vector2(545, 41)

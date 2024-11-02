@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://cuy6cf1nj0y8d"]
+
+[ext_resource type="Script" path="res://scripts/personajes/patricio-tryhard.gd" id="1_8vspi"]
+[ext_resource type="Shader" path="res://scripts/personajes/flicker.gdshader" id="2_ksk3a"]
+[ext_resource type="Texture2D" uid="uid://cot076w6s83t1" path="res://assets/personajes/combate_idl.png" id="3_4behs"]
+[ext_resource type="Texture2D" uid="uid://4e6h5f44p7yn" path="res://assets/personajes/patriciotraihard.png" id="4_lbhx2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l84re"]
+shader = ExtResource("2_ksk3a")
+shader_parameter/color = Color(1, 0.303617, 0.31493, 1)
+shader_parameter/amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugmi3"]
+atlas = ExtResource("3_4behs")
+region = Rect2(0, 0, 186, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwpat"]
+atlas = ExtResource("3_4behs")
+region = Rect2(186, 0, 186, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ia7s"]
+atlas = ExtResource("3_4behs")
+region = Rect2(372, 0, 186, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q7kp"]
+atlas = ExtResource("3_4behs")
+region = Rect2(558, 0, 186, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hhh4"]
+atlas = ExtResource("4_lbhx2")
+region = Rect2(0, 0, 186, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1y4k5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugmi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwpat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ia7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q7kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ia7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwpat")
+}],
+"loop": true,
+"name": &"machine gun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hhh4")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abd4y"]
+radius = 28.0
+height = 104.0
+
+[node name="Patricio-tryhard" type="CharacterBody2D"]
+script = ExtResource("1_8vspi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_l84re")
+position = Vector2(2, -3)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_1y4k5")
+animation = &"machine gun"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -6)
+shape = SubResource("CapsuleShape2D_abd4y")
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
