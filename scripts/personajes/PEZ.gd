@@ -37,4 +37,6 @@ func _physics_process(_delta):
 					$AnimatedSprite2D.play("dercbr")							
 				if position.x > target.x:	
 					$AnimatedSprite2D.play("izqcbr")
+
+				%Patricio.remove_health()
 				
