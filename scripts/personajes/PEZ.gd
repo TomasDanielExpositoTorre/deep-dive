@@ -7,13 +7,11 @@ extends CharacterBody2D
 var target = position 
 
 func _physics_process(_delta):
-	
-	target   = %CharacterBody2D.position
-	target.x = %CharacterBody2D.position.x
-	target.y = %CharacterBody2D.position.y
-	
-	target.x += 150
-	target.y += 100		
+
+	target   = %Patricio.position
+	target.x = %Patricio.position.x
+	target.y = %Patricio.position.y
+		
 	
 	velocity = position.direction_to(target) * speed
 	
