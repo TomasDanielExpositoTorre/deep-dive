@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://cluwj4cr00u8k"]
+
+[ext_resource type="Script" path="res://scripts/personajes/PEZ.gd" id="1_wb7yf"]
+[ext_resource type="Texture2D" uid="uid://c7ecsu8nha1gf" path="res://assets/personajes/fish.png" id="2_m4kuh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s2lfe"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h25t5"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frp27"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(0, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqgpy"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(300, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pug2x"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(600, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_galih"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(900, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dof8u"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujq1t"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj7ic"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh7ad"]
+atlas = ExtResource("2_m4kuh")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mif3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h25t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frp27")
+}],
+"loop": true,
+"name": &"cabreado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqgpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pug2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_galih")
+}],
+"loop": true,
+"name": &"girando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dof8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujq1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj7ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh7ad")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbuwi"]
+radius = 48.75
+height = 127.5
+
+[node name="PEZ2" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_wb7yf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_s2lfe")
+position = Vector2(-144, -163)
+sprite_frames = SubResource("SpriteFrames_mif3n")
+animation = &"cabreado"
+autoplay = "idle"
+centered = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+physics_interpolation_mode = 1
+top_level = true
+texture_filter = 1
+position = Vector2(11, -12)
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_tbuwi")

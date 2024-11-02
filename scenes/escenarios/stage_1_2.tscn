@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cn2g7l343xdxt"]
+[gd_scene load_steps=22 format=3 uid="uid://cn2g7l343xdxt"]
 
 [ext_resource type="Texture2D" uid="uid://drd5feil7b323" path="res://assets/escenarios/stage-2.png" id="1_trjy3"]
 [ext_resource type="PackedScene" uid="uid://d2ybjyjhxi2ww" path="res://scenes/personajes/patricio.tscn" id="2_1atyj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dc0nksgjd3hd2" path="res://scenes/personajes/jellyfish.tscn" id="7_ltkka"]
 [ext_resource type="Texture2D" uid="uid://bmre6oe8jo8fd" path="res://assets/escenarios/stage-borders.png" id="7_qbp03"]
 [ext_resource type="PackedScene" uid="uid://dubynefjfu342" path="res://scenes/objetos/blob.tscn" id="8_6xdgu"]
+[ext_resource type="PackedScene" uid="uid://cluwj4cr00u8k" path="res://scenes/personajes/pez_2.tscn" id="9_hr2xk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3ov6"]
 distance = 32.0
@@ -48,6 +49,7 @@ polygon = PackedVector2Array(900, 5655, 900, 4618, 894, 4618, 894, 4619.3, 815.6
 [node name="Stage1-2" type="Node2D"]
 
 [node name="Patricio" parent="." instance=ExtResource("2_1atyj")]
+unique_name_in_owner = true
 position = Vector2(908, 197)
 collision_mask = 14
 
@@ -149,163 +151,154 @@ polygon = PackedVector2Array(249, -2841.6, 209, -2850.5, 209, -2848.6, 191.9, -2
 build_mode = 1
 polygon = PackedVector2Array(900, 563, 900, -745.1, 889, -748.8, 889, -745.8, 887.2, -744, 885.5, -744, 881, -729.3, 881, -726.7, 876, -720, 874.7, -720, 862.7, -693, 861.5, -693, 844, -638.3, 844, -633.8, 841.2, -631, 838.8, -631, 841, -607, 838, -607, 833, -600.7, 833, -594.8, 842, -537.7, 842, -533.9, 798.3, -491.2, 733.1, -497, 731.8, -497, 718.7, -495, 708.3, -495, 696.3, -486, 694.4, -486, 660, -344.2, 660, -340.4, 655.7, -331, 654.2, -331, 653, -318.1, 653, -314, 611, -167.3, 611, -162.8, 608.2, -160, 605.7, -160, 608, -143.7, 608, -141, 648.3, -109, 650, -109, 660, -96, 666.7, -96, 671.7, -100, 673.2, -100, 679.3, -111, 680.4, -111, 686.4, -127, 693.1, -127, 695.1, -130, 697.6, -130, 696, -136, 696, -144.6, 700, -155.6, 700, -158.6, 726.8, -205.4, 781.7, -188, 784.7, -188, 790.8, -177, 791.5, -177, 794.5, -166, 793, -97, 793, -48.2002, 797.2, -44, 803.1, -44, 805.7, -48.5, 810, -44.2002, 810, -43, 806.3, -40, 803.3, -40, 808.5, -23, 807, -11.0996, 807, -0.5, 804, 5.5, 804, 18.7998, 809.2, 24, 815.1, 24, 818.1, 19, 819.8, 19, 820, 16.4004, 823.9, 33.7002, 819, 28.2002, 819, 25.0996, 807, 29.5996, 807, 35.7998, 816.2, 45, 816.8, 45, 824.8, 60, 825.6, 60, 838.6, 93.0996, 837.8, 92.7002, 829, 99, 829, 101.8, 850.2, 123, 852.4, 131, 853.5, 131, 861.4, 164, 860.5, 167, 858.9, 167, 860, 190.1, 860, 196.3, 867, 219.2, 867, 222.5, 877.9, 241, 879, 241, 879, 255.5, 855.2, 250, 852.7, 250, 764.7, 186, 725, 59.7002, 725, 55.2002, 715.9, 45, 708, 25.5, 708, 22, 704, 19, 704, 16.5, 684.9, 21, 682.2, 21, 675, 28.2002, 666.5, 32, 664.1, 32, 656, 41.2002, 656, 49.4004, 687.5, 133.7, 686, 140.8, 686, 144.4, 717.7, 212, 718.6, 212, 745.6, 279, 746, 284.2, 741.7, 285, 739, 285, 729, 299, 727.8, 299, 726, 302.5, 726, 308, 731, 311.9, 723, 320.2, 723, 326.7, 764, 380, 766, 386, 766, 388.6, 805.2, 442.9, 803, 447.5, 803, 452.6, 816, 470.6, 816, 472.8, 891, 557.7, 891, 560.4, 898.7, 563)
 
-[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Background Objects"]
+[node name="rocks-viii" type="CollisionPolygon2D" parent="Background Objects"]
 build_mode = 1
 polygon = PackedVector2Array(667, 1943, 591, 1942, 591, 1943, 538.9, 1943, 510.7, 1947, 490.6, 1947, 473, 1954.7, 473, 1955.4, 440, 1963, 432.7, 1963, 404.6, 1973, 399.2, 1973, 372.2, 1999, 370.9, 1999, 336, 2051.4, 336, 2053.2, 298, 2098.3, 298, 2099.8, 291, 2103.8, 228.9, 2108, 219.8, 2108, 177.7, 2115, 171.5, 2115, 157, 2122.8, 145, 2123, 140, 2129.3, 140, 2131.9, 145.4, 2136.4, 139.3, 2141, 137.1, 2141, 128.1, 2152, 127, 2152, 66, 2231, 64.8, 2231, 54, 2251.5, 54, 2258.3, 43, 2275.4, 43, 2277, 25.7, 2290.6, 21.9, 2286, 16.3, 2286, -40.8, 2332, -42.6, 2332, -46, 2346.8, -46, 2350.5, -62.4, 2396, -63.2, 2396, -64.3, 2398.1, -60, 2404.6, -60, 2407, -52.9, 2407, -49.3, 2401.5, -46.8, 2404, -45.9, 2404, -40.2, 2411, -43, 2411, -48, 2417.3, -48, 2420.9, -14.8, 2452, -13, 2452, 0, 2470, 0.700012, 2470, 26.8, 2518, 34, 2549.4, 34, 2551.9, 46, 2562.9, 46, 2564.4, 55.6, 2568, 56.9, 2568, 65, 2580.6, 65, 2582.2, 77, 2588.2, 77, 2589.6, 82.8, 2591, 93.2, 2591, 97.1, 2584, 98.5, 2584, 102, 2586.1, 102, 2587.6, 121, 2591.6, 121, 2592.8, 142, 2594.8, 142, 2596, 307, 2598, 326.8, 2598, 329.8, 2595, 340.9, 2595, 383.9, 2598, 390.3, 2598, 397, 2603, 397, 2604.5, 412, 2608.5, 412, 2609.6, 491.7, 2630, 495.7, 2630, 588, 2657.4, 588, 2658.6, 647.8, 2673, 652.7, 2673, 693, 2685.4, 693, 2686.7, 763, 2698.7, 763, 2699.9, 816.9, 2704, 819.3, 2704, 843.3, 2697, 847.5, 2697, 863, 2688.2, 863, 2687.6, 892.4, 2681, 898.1, 2681, 900, 2677.8, 900, 2042.5, 879, 2026.9, 879, 2025.8, 853, 2011.7, 853, 2010.7, 766.4, 1971, 763.5, 1971, 735, 1953.9, 735, 1952.2, 667, 1944.2)
 
-[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Background Objects"]
+[node name="rocks-ix" type="CollisionPolygon2D" parent="Background Objects"]
 build_mode = 1
 polygon = PackedVector2Array(597, 4121.2, 541, 4115.8, 541, 4117.7, 537, 4119.8, 537, 4123.2, 530.8, 4124, 526.3, 4124, 521, 4128, 521, 4129.5, 429.7, 4160, 426.5, 4160, 383, 4181.8, 383, 4183, 380, 4181.7, 380, 4180, 352.9, 4180, 300.8, 4186, 282.5, 4186, 275, 4189.8, 275, 4191.1, 248, 4193.1, 248, 4194, 228.9, 4195, 175.3, 4195, 170.2, 4198.8, 137.1, 4196, 129.4, 4196, 123, 4193.5, 123, 4192.2, 90.1, 4188, 82.4, 4188, 12, 4174.3, 10, 4172.7, 4.5, 4176, 2.20001, 4176, -76, 4167.2, -76, 4165.7, -86.2, 4167, -128.2, 4167, -157, 4173.4, -157, 4174.1, -192.2, 4177, -201.2, 4177, -245, 4185.3, -245, 4186.1, -289.2, 4191, -304.7, 4191, -365, 4164.7, -365, 4163.6, -413, 4147.5, -413, 4146, -508.2, 4146, -525.3, 4149, -531, 4149, -534, 4153, -536.6, 4153, -532.5, 4168, -531.9, 4168, -530.9, 4193, -529.9, 4193, -526.9, 4270, -528, 4274.7, -528, 4278, -503.7, 4297, -503.1, 4297, -492, 4316.4, -492, 4318.7, -452, 4373, -451.2, 4373, -419, 4435.5, -419, 4437.8, -412.8, 4444, -412.2, 4444, -403, 4462.5, -403, 4465, -396.7, 4470, -396.1, 4470, -351.1, 4537, -350.3, 4537, -338, 4559.6, -338, 4561.6, -284, 4637, -284, 4642.8, -253.8, 4672, -253.1, 4672, -226, 4712.6, -226, 4714.8, -203.9, 4738, -203.1, 4738, -192, 4756.5, -192, 4759.2, -184.5, 4763, -169, 4789.7, -171.3, 4790, -168, 4817.2, -168, 4865, -171.9, 4927, -173, 4927, -173, 4976, -174, 4976, -174, 5004.7, -169.1, 5010.9, -170, 5038, -170, 5049.7, -163.9, 5057, -121, 5264.4, -121, 5269.3, -108.5, 5308, -107.8, 5308, -99.8, 5389, -98.9, 5389, -96.9, 5441, -96.1, 5441, -99, 5544, -99, 5549, -105, 5603.9, -105, 5624.6, -109.7, 5647, -111, 5647, -111, 5655.1, -106, 5658.1, -106, 5662, -109.5, 5676, -110.7, 5676, -120.4, 5746.3, -133, 5706.7, -133, 5700.2, -137.2, 5696, -139.5, 5696, -146.5, 5669, -148, 5669, -148, 5654.7, -157.2, 5620.3, -156, 5618.6, -156, 5614.5, -168, 5589.5, -168, 5586.9, -171, 5584.9, -171, 5583.3, -200.8, 5578, -204.8, 5578, -210, 5583.2, -217.2, 5584, -222, 5584, -225, 5588, -227.6, 5588, -220.5, 5614, -219.7, 5614, -213.7, 5655, -212.8, 5655, -194.7, 5784, -195, 5792.9, -195, 5803, -202.5, 5835, -203.7, 5835, -214, 5902.8, -214, 5907.7, -221, 5910.7, -221, 5945.2, -226, 5950.2, -226, 5954.7, -219, 5964, -211, 6050.2, -211, 6055.3, -200, 6093.2, -200, 6097.4, -187, 6127.3, -187, 6128.7, -225, 6249.7, -225, 6253.7, -306, 6496.7, -306, 6500.2, -310, 6504.2, -310, 6515.8, -271, 6558.7, -271, 6561, -262.6, 6561, -260.7, 6556.1, -259.8, 6557, -253.4, 6557, -249, 6554.1, -225, 6550.8, -216.9, 6552.8, -214.8, 6573, -214, 6573, -214, 6651.7, -203, 6665.6, -203, 6669, -193.7, 6676, -192, 6676, -188, 6681.6, -188, 6683.2, -160.5, 6698, -158.7, 6698, -135, 6717.9, -135, 6720.6, -121.9, 6717, -116.4, 6717, -108, 6711, -72.1, 6711, -62, 6698.7, -62, 6698, -39.3, 6681.6, -30, 6709.3, -30, 6712.4, -13, 6752.3, -13, 6755.7, 2, 6775, 9, 6812.4, 9, 6817.2, 30, 6908, 30, 6913.3, 46.9, 6961, 35.3, 6971, 33, 6971, 33, 6986, 18, 7049.8, 18, 7054, 13.3, 7058, 11.2, 7058, 7, 7099.9, 7, 7108.6, 0, 7140.8, 0, 7146, -21, 7220.7, -21, 7224.7, -37.4, 7274, -39, 7274, -39, 7283.2, -33.3, 7286.1, -38.2, 7297, -39.5, 7297, -48.5, 7327, -49.5, 7327, -115.5, 7545, -116.7, 7545, -130, 7634.9, -130, 7642, -136.5, 7669, -137.2, 7669, -138.3, 7671, -135, 7676.5, -135, 7680, -141, 7720.9, -141, 7755.2, -134.7, 7794, -134, 7794, -135, 7844, -135, 7845.1, -132, 7871.2, -132, 7895.8, -127.8, 7900, -122.5, 7900, -122, 7902, -122, 7904.9, -128, 7908.9, -128, 7913.4, -99, 7992.4, -99, 7995.4, -79, 8041.3, -79, 8045.6, -51, 8086, -50.1, 8086, -20, 8139.4, -20, 8142, -14.7, 8146, -12.2, 8146, -3, 8163.5, -3, 8166.1, 6.40002, 8172, 7, 8172, 37.2, 8216, 37, 8216.5, 37, 8223.2, 45.4, 8259, 46.2, 8259, 52, 8305.2, 52, 8345, 42.2, 8447, 41.1, 8447, 36, 8532.9, 36, 8538.8, 39.2, 8542, 46.2, 8611, 46.9, 8611, 46, 8625.9, 46, 8638.2, 57, 8705.3, 57, 8712.4, 61, 8722.4, 61, 8733.6, 102, 8797.6, 102, 8800.1, 111.4, 8806, 121.8, 8824, 123, 8856.1, 123, 8867.4, 128, 8878.3, 128, 8881, 169.8, 8881, 212, 8885.7, 212, 8887, 224.4, 8887, 233.4, 8883, 238.7, 8883, 263, 8886.7, 263, 8888.1, 281.1, 8887, 284.9, 8887, 298, 8890.5, 298, 8892, 327.9, 8892, 347.9, 8922, 348.9, 8922, 387, 8988.4, 387, 8990.7, 400, 9007, 400.8, 9007, 409, 9022.5, 409, 9024.9, 424, 9038.9, 424, 9042.2, 430.5, 9039, 438, 9041.4, 438, 9042.8, 481.9, 9048, 486.6, 9048, 534, 9069.2, 534, 9071.8, 542.3, 9069, 544.9, 9069, 592, 9082.4, 592, 9083.7, 632, 9090.7, 632, 9092.4, 647, 9089.7, 647, 9088, 658.2, 9088, 661, 9090.8, 661, 9093.1, 727.8, 9088.9, 728, 9090.9, 746.9, 9092, 750.2, 9092, 826.4, 9075, 830.3, 9075, 900, 9051, 900, 6958.9, 878.3, 6953, 876.1, 6953, 874, 6949.5, 874, 6947.6, 859, 6942.5, 859, 6941.5, 812.3, 6929, 808.3, 6929, 738.3, 6906, 735.6, 6906, 715.5, 6895, 714.3, 6895, 711, 6887.7, 712, 6886.8, 712, 6880.9, 707, 6877.9, 707, 6876, 478, 6871, 455.9, 6871, 450.9, 6865, 450.2, 6865, 417.2, 6803, 415.7, 6803, 401, 6717.7, 401, 6710.3, 394.9, 6703, 378, 6600.7, 378, 6594.4, 371.1, 6584, 365, 6538.7, 365, 6534.3, 361, 6529, 360.4, 6529, 348, 6490.7, 348, 6487.2, 343, 6482.2, 343, 6479.2, 335.7, 6481.6, 335, 6474.8, 335, 6472.4, 247.1, 6328, 246.5, 6328, 216.6, 6205, 215.8, 6205, 190.7, 6034, 194, 5989.1, 194, 5981.4, 201, 5950.2, 201, 5946.3, 207.3, 5931, 210, 5931, 207, 5923.5, 207, 5919.4, 215.6, 5880, 216.7, 5880, 228.8, 5796, 230.1, 5796, 220, 5630.9, 220, 5620.4, 242.7, 5513, 244.3, 5511, 241, 5505.5, 241, 5500.4, 255.7, 5433, 256.7, 5433, 270.8, 5336, 272.3, 5336, 269.8, 5316, 272, 5295.1, 272, 5285.6, 259.4, 5251, 258.6, 5251, 237, 5154.6, 237, 5149.7, 217.5, 5083, 228, 5040.2, 228, 5036.6, 233, 5030, 234.8, 5030, 246.8, 4937, 248.4, 4937, 246, 4924.6, 246, 4915.1, 255, 4786.1, 255, 4762.6, 295, 4754.6, 295, 4753.8, 321.1, 4752, 328.5, 4752, 370.5, 4728, 377.9, 4728, 425.9, 4677, 427, 4677, 449, 4648, 450.2, 4648, 478.2, 4595, 479.8, 4595, 482, 4570.1, 482, 4568.4, 501, 4482.2, 501, 4477.1, 502.7, 4476, 504.1, 4476, 546, 4407.6, 546, 4405.8, 553.7, 4399, 555.1, 4399, 581, 4359.6, 581, 4357.6, 616, 4312.7, 616, 4310.8, 673, 4253.8, 673, 4252.9, 728.7, 4211, 730.8, 4211, 736, 4205.8, 736, 4201.9, 747.7, 4192, 750.1, 4192, 748, 4138.9, 748, 4135.2, 741, 4128.2, 741, 4126.2, 714.1, 4123, 711.8, 4123, 684, 4127.3, 684, 4128, 628.4, 4128, 597, 4122.2)
 
-[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Background Objects"]
+[node name="rocks-x" type="CollisionPolygon2D" parent="Background Objects"]
 build_mode = 1
 polygon = PackedVector2Array(-884.5, 4140, -900, 4130.7, -900, 9276.1, -899.4, 9276.4, -845, 9212.7, -845, 9210.8, -804, 9174.9, -804, 9174.1, -789.5, 9166, -787, 9167.9, -787, 9171.2, -780.5, 9168, -778.2, 9168, -764, 9154.9, -764, 9154.2, -743.4, 9143, -741.1, 9143, -735, 9135.7, -720.7, 9129, -718.3, 9129, -701.6, 9115.2, -699.8, 9117, -692.9, 9117, -684.9, 9105, -683.6, 9105, -678, 9088.3, -678, 9086.4, -627.9, 8998, -626.8, 8998, -602.7, 8949, -601.5, 8949, -597, 8934.3, -597, 8923.5, -588, 8905.5, -588, 8903.7, -578.1, 8892, -576.6, 8892, -571.6, 8879, -570.6, 8879, -540, 8786.3, -540, 8783.3, -521.7, 8740, -520, 8740, -520, 8726.4, -505.6, 8690, -504.5, 8690, -484.5, 8625, -482.7, 8625, -490.2, 8562, -491.1, 8562, -493.1, 8510, -494, 8510, -495, 8325, -495, 8320.3, -500, 8314, -501.1, 8314, -503.1, 8278, -499.3, 8252, -498.1, 8252, -496.1, 8196, -494.9, 8196, -498.1, 8110, -499, 8110, -499, 8097.6, -497, 8095, -495, 8095, -499, 7928, -500, 7928, -498, 7645, -498, 7642.2, -502, 7638.2, -502, 7635.2, -506.1, 7636.5, -507.1, 7610, -508, 7610, -508, 7559, -501, 7554, -501, 7548.4, -534, 7502.3, -534, 7500.1, -547, 7488, -547, 7486, -554, 7486, -558, 7491, -559, 7491, -577, 7515.3, -584.3, 7517.9, -585, 7517.2, -585, 7515, -603.3, 7515, -616.6, 7518.8, -635, 7450.8, -635, 7442.8, -665.4, 7293, -666, 7293, -666, 7273.3, -669, 7269.3, -667, 7266.7, -667, 7259.8, -682.4, 7198, -683.1, 7198, -701, 6968.8, -701, 6964.4, -684, 6919.4, -684, 6916.5, -651, 6851.5, -651, 6849.6, -632, 6822.6, -632, 6821.2, -629.1, 6826, -623, 6826, -614, 6814, -612.9, 6814, -572.9, 6747, -571.8, 6747, -532, 6673.5, -532, 6671.9, -525.1, 6666, -520.9, 6666, -518.9, 6663, -517.3, 6663, -501.3, 6578.5, -496, 6583.8, -496, 6585.3, -493.7, 6586.4, -487.3, 6581, -485.8, 6581, -484.7, 6578.9, -493.9, 6564.6, -489, 6559.8, -489, 6554.4, -505.9, 6529, -506.9, 6529, -550, 6453.5, -550, 6451.3, -615, 6363, -616.1, 6363, -620.1, 6287, -619, 6283.3, -619, 6269.9, -621.2, 6244, -622, 6244, -624, 6053, -624.9, 6053, -621.1, 5980, -620, 5980, -620, 5928, -618.9, 5928, -624, 5753.9, -624, 5752.3, -609.1, 5719.4, -578, 5709.5, -578, 5708.5, -490.9, 5687.8, -486.5, 5690, -482.2, 5690, -441, 5647.8, -441, 5646.1, -435.5, 5643, -431.7, 5646, -424.7, 5646, -421.7, 5639, -419.8, 5639, -431, 5535.8, -431, 5528.7, -443.1, 5481.4, -441, 5478.7, -441, 5471.5, -446, 5462.5, -446, 5460.2, -450.2, 5456, -452.9, 5456, -457.3, 5448, -456, 5445.5, -456, 5439.4, -493.1, 5381.2, -492, 5379.6, -492, 5373.2, -504.2, 5361, -504.9, 5361, -525.9, 5329, -526.8, 5329, -543.8, 5297, -544.6, 5297, -550, 5281.5, -550, 5278.2, -555.2, 5273, -561.2, 5273, -563.7, 5277.8, -577.9, 5257, -578.6, 5257, -580, 5253.5, -580, 5246.3, -585, 5240, -585.6, 5240, -607.7, 5186, -608.5, 5186, -632.4, 5082, -633.3, 5082, -634, 5077.7, -634, 5075.9, -629, 5072, -629, 5067.7, -675, 4916.7, -675, 4913.6, -710, 4833.6, -710, 4830.5, -761.8, 4736, -762.6, 4736, -763, 4734.7, -763, 4733, -759, 4730, -759, 4723.6, -780.7, 4671, -781.5, 4671, -799.5, 4614, -800.3, 4614, -831.3, 4428, -830, 4415.1, -830, 4410.1, -826.5, 4408, -824.3, 4408, -822.3, 4397, -821.2, 4397, -816, 4333.1, -816, 4315.8, -815.2, 4315, -813.1, 4315, -812.1, 4295, -811, 4295, -811, 4222.8, -818.5, 4184.5, -815.5, 4186, -811.2, 4186, -806, 4180.8, -806, 4176.1, -813.3, 4170, -814, 4170, -814, 4166, -818, 4163, -818, 4161.6, -828, 4157.6, -828, 4156.5, -881.7, 4140)
 
-[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Background Objects"]
+[node name="rocks-xi" type="CollisionPolygon2D" parent="Background Objects"]
 build_mode = 1
 polygon = PackedVector2Array(900, 5655, 900, 4618, 894, 4618, 894, 4619.3, 815.6, 4635, 812.4, 4635, 801.4, 4642, 799.2, 4642, 784, 4657.2, 784, 4658, 778.9, 4658, 776.9, 4661, 775.6, 4661, 757.6, 4716, 756.4, 4716, 741, 4779.8, 741, 4784.5, 721, 4838.6, 721, 4842.2, 676, 4894.3, 676, 4896.1, 647, 4924.2, 647, 4925.1, 600, 4966.1, 600, 4966.7, 588.5, 4973, 586.8, 4973, 564.8, 5016, 562.6, 5016, 564, 5023.4, 564, 5024.5, 544.6, 5079, 543.4, 5079, 535, 5115.8, 535, 5119.5, 530, 5129.5, 530, 5131.4, 484, 5198.4, 484, 5200.2, 475.2, 5209, 473.9, 5209, 442, 5263.5, 421, 5279, 405.6, 5285, 402, 5285, 397, 5292, 395.5, 5292, 390.5, 5311, 389, 5311, 389, 5319, 393, 5322, 393, 5324.1, 402, 5330.1, 402, 5333.2, 408.5, 5330, 412.6, 5330, 423.6, 5334, 427.5, 5334, 435, 5338.1, 435, 5339.4, 469.7, 5351, 472.5, 5351, 489, 5360.1, 489, 5363, 496.5, 5360, 498.5, 5360, 509, 5366.1, 509, 5368.2, 572, 5362.8, 575.7, 5364, 578, 5364, 581, 5367.7, 581, 5369.2, 591.5, 5375, 593.1, 5375, 606.2, 5387, 608.1, 5387, 627.1, 5409, 628, 5409, 675, 5477, 675.8, 5477, 689, 5501.5, 689, 5503.6, 706, 5527.6, 706, 5529.7, 728, 5559, 730.7, 5559, 741, 5577.6, 741, 5579.8, 751, 5590.7, 751, 5592.3, 775, 5602.3, 775, 5603.5, 834.7, 5622, 837.4, 5622, 898.5, 5655)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-i2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-1, 0)
 occluder = SubResource("OccluderPolygon2D_027ug")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-ii2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_yjuoo")
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-iii2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_042u7")
 
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-iv2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_438g1")
 
-[node name="LightOccluder2D5" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-v2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_au0en")
 
-[node name="LightOccluder2D6" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-vi2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_maqed")
 
-[node name="LightOccluder2D7" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-vii2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_mi4jh")
 
-[node name="LightOccluder2D8" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-viii2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_qa5dw")
 
-[node name="LightOccluder2D9" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-ix2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_bragc")
 
-[node name="LightOccluder2D10" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-x2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_4bmr4")
 
-[node name="LightOccluder2D11" type="LightOccluder2D" parent="Background Objects"]
+[node name="rocks-xi2" type="LightOccluder2D" parent="Background Objects"]
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_skve8")
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Jellyfish" type="Node" parent="."]
 
-[node name="Jellyfish2" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish2" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1576, 5978)
 
-[node name="Jellyfish3" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish3" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(889, 6583)
 
-[node name="Jellyfish6" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish6" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(583, 7822)
 
-[node name="Jellyfish7" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish7" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(284, 8425)
 
-[node name="Jellyfish8" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish8" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1449, 9375)
 
-[node name="Jellyfish9" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish9" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1008, 9910)
 
-[node name="Jellyfish10" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish10" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1375, 10526)
 
-[node name="Jellyfish11" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish11" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1355, 1646)
 
-[node name="Jellyfish12" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish12" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1348, 2652)
 
-[node name="Jellyfish13" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish13" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(1370, 3110)
 
-[node name="Jellyfish14" parent="Enemies" instance=ExtResource("7_ltkka")]
+[node name="Jellyfish14" parent="Jellyfish" instance=ExtResource("7_ltkka")]
 position = Vector2(473, 3942)
 
-[node name="Blob12" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blobs" type="Node" parent="."]
+
+[node name="Blob12" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(808, 6821)
 
-[node name="Blob11" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob11" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1031, 6177)
 
-[node name="Blob10" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob10" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1414, 6395)
 
-[node name="Blob9" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob9" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(198, 5614)
 
-[node name="Blob8" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob8" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(111, 4842)
 
-[node name="Blob7" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob7" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(479, 4267)
 
-[node name="Blob6" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob6" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(825, 3369)
 
-[node name="Blob5" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob5" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1499, 4085)
 
-[node name="Blob4" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob4" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(843, 2047)
 
-[node name="Blob3" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob3" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1721, 3899)
 
-[node name="Blob2" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob2" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1680, 3517)
 
-[node name="Blob" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(201, 3714)
 
-[node name="Blob13" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob13" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(392, 3337)
 
-[node name="Blob14" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob14" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(300, 5048)
 
-[node name="Blob15" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob15" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1412, 7480)
 
-[node name="Blob16" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob16" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1690, 7674)
 
-[node name="Blob17" parent="Enemies" instance=ExtResource("8_6xdgu")]
+[node name="Blob17" parent="Blobs" instance=ExtResource("8_6xdgu")]
 position = Vector2(1682, 8039)
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 1323.0
-offset_top = 4568.0
-offset_right = 1408.0
-offset_bottom = 4603.0
-text = "TIBURON"
-
-[node name="TextEdit2" type="TextEdit" parent="."]
-offset_left = 643.0
-offset_top = 7222.0
-offset_right = 728.0
-offset_bottom = 7257.0
-text = "TIBURON"
+[node name="PEZ2" parent="." instance=ExtResource("9_hr2xk")]
+position = Vector2(560, 533)

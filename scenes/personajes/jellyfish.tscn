@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/personajes/jellyfish.gd" id="1_u430q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7v8rn"]
+light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbc42"]
 atlas = ExtResource("1_hc730")
@@ -185,6 +186,8 @@ height = 124.451
 size = Vector2(2504, 112)
 
 [node name="Jellyfish" type="Area2D"]
+light_mask = 4
+visibility_layer = 4
 use_parent_material = true
 collision_layer = 4
 script = ExtResource("1_u430q")

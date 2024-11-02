@@ -1,4 +1,4 @@
-# PEZ PERSEGUIDOR NIVEL 1 - David
+# PEZ PERSEGUIDOR NIVEL 1 - Davidas
 
 extends CharacterBody2D
 
@@ -18,23 +18,30 @@ func _physics_process(_delta):
 	if position.distance_to(target) > 10:
 		
 			if position.x < target.x && target.x - position.x > 50:
-					$AnimatedSprite2D.play("der")				
+					$AnimatedSprite2D.flip_h = false
+					$AnimatedSprite2D.play("idle")				
 					
 			else: if position.x < target.x && target.x - position.x < 50:	
-					$AnimatedSprite2D.play("centrDI")
+					$AnimatedSprite2D.flip_h = false
+					$AnimatedSprite2D.play("girando")
 										
 			if position.x > target.x && position.x - target.x > 50:			
-					$AnimatedSprite2D.play("izq")			
+					$AnimatedSprite2D.flip_h = true
+					$AnimatedSprite2D.play("idle")				
 				
 			else: if position.x > target.x && position.x - target.x < 50:
-					$AnimatedSprite2D.play("centrID")
+					$AnimatedSprite2D.flip_h = true
+					$AnimatedSprite2D.play("girando")
 						
 			move_and_slide()	
 	
 	else:  if position.distance_to(target) < 10:
 		
 				if position.x < target.x:	
-					$AnimatedSprite2D.play("dercbr")							
+					$AnimatedSprite2D.flip_h = false
+					$AnimatedSprite2D.play("cabreado")
+
 				if position.x > target.x:	
-					$AnimatedSprite2D.play("izqcbr")
-				
+					$AnimatedSprite2D.flip_h = true
+					$AnimatedSprite2D.play("cabreado")
+				%Patricio.remove_health()
