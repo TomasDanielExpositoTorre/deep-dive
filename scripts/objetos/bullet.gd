@@ -9,3 +9,4 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	body.remove_health()
+	queue_free()

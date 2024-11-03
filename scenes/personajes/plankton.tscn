@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://4wapmx0jm877"]
+[gd_scene load_steps=16 format=3 uid="uid://4wapmx0jm877"]
 
 [ext_resource type="Script" path="res://scripts/personajes/plankton.gd" id="1_d402k"]
 [ext_resource type="Texture2D" uid="uid://cckb8bmfqjou7" path="res://assets/personajes/planktonidl.png" id="1_od0vk"]
 [ext_resource type="Shader" path="res://scripts/personajes/flicker.gdshader" id="2_f4c6c"]
 [ext_resource type="Texture2D" uid="uid://dwfqojoq78k35" path="res://assets/personajes/plankton_dispara.png" id="3_gt8ka"]
+[ext_resource type="AudioStream" uid="uid://b7ve8r1u8t1nt" path="res://assets/music/cannonball.mp3" id="5_hww5c"]
+[ext_resource type="AudioStream" uid="uid://bjbtn5fdomcba" path="res://assets/music/ouch-101soundboards.mp3" id="6_c2fbm"]
+[ext_resource type="AudioStream" uid="uid://dgji1plhxi7tv" path="res://assets/music/i-went-to-college-101soundboards.mp3" id="7_qak0i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qv1v"]
 shader = ExtResource("2_f4c6c")
@@ -89,3 +92,14 @@ rotation = 3.14159
 
 [node name="RayCastDOWN" type="RayCast2D" parent="."]
 position = Vector2(73, -7)
+
+[node name="Shooting" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hww5c")
+volume_db = -10.0
+max_polyphony = 2
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_c2fbm")
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qak0i")

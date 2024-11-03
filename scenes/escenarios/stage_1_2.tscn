@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cn2g7l343xdxt"]
+[gd_scene load_steps=34 format=3 uid="uid://cn2g7l343xdxt"]
 
 [ext_resource type="Script" path="res://scripts/escenarios/stage_1_2.gd" id="1_j48tj"]
 [ext_resource type="Texture2D" uid="uid://drd5feil7b323" path="res://assets/escenarios/stage-2.png" id="1_trjy3"]
@@ -18,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://b0cp75yt45tp0" path="res://scenes/personajes/tiiburon_enemy.tscn" id="16_7hcpj"]
 [ext_resource type="PackedScene" uid="uid://dg3paloejiei" path="res://scenes/objetos/almeja.tscn" id="17_i555u"]
 [ext_resource type="PackedScene" uid="uid://dubynefjfu342" path="res://scenes/objetos/blob.tscn" id="17_oveoc"]
+[ext_resource type="PackedScene" uid="uid://b3tdbq5vs0b1y" path="res://scenes/escenarios/timer_label.tscn" id="19_t064m"]
+[ext_resource type="AudioStream" uid="uid://dkywsofwxuk1e" path="res://assets/music/What Lies Beneath - Underwater horror ambiance.mp3" id="20_peg3u"]
+
+[sub_resource type="SystemFont" id="SystemFont_7wfoo"]
+font_names = PackedStringArray("Impact")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3ov6"]
 distance = 32.0
@@ -73,6 +78,13 @@ limit_bottom = 20000
 position_smoothing_enabled = true
 
 [node name="Fixed" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" parent="Fixed" instance=ExtResource("19_t064m")]
+offset_left = 510.0
+offset_top = 2.0
+offset_right = 550.0
+offset_bottom = 25.0
+theme_override_fonts/font = SubResource("SystemFont_7wfoo")
 
 [node name="Lives" parent="Fixed" instance=ExtResource("3_6wyvg")]
 unique_name_in_owner = true
@@ -396,3 +408,8 @@ position = Vector2(613, 16518)
 
 [node name="Blob24" parent="Enemies/Erizos" instance=ExtResource("17_oveoc")]
 position = Vector2(350, 16632)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_peg3u")
+autoplay = true
+max_distance = 200000.0

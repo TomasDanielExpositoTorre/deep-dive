@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Deep Dive"
-run/main_scene="res://scenes/mainmenu/main_menu.tscn"
+run/main_scene="res://scenes/escenarios/boss_fight.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Lifecounter="*res://scripts/objetos/lifecounter.gd"
+GlobalTimer="*res://scripts/mainmenu/global_timer.gd"
 
 [display]
 
