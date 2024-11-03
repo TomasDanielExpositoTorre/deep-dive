@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bea3wxw5m68d5"]
+[gd_scene load_steps=10 format=3 uid="uid://bea3wxw5m68d5"]
 
 [ext_resource type="Texture2D" uid="uid://baqagk5ny1s74" path="res://assets/objetos/chest.svg" id="1_75g3p"]
+[ext_resource type="Script" path="res://scripts/objetos/chest.gd" id="1_ap1ud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdp3g"]
 atlas = ExtResource("1_75g3p")
@@ -52,17 +53,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paj10"]
 size = Vector2(80, 61)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iqjq"]
+size = Vector2(140, 111)
+
 [node name="chest" type="StaticBody2D"]
 collision_layer = 15
+script = ExtResource("1_ap1ud")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(0.119952, 0.119952)
 sprite_frames = SubResource("SpriteFrames_n21gt")
-animation = &"chest_vacio"
-frame = 2
-frame_progress = 1.0
+animation = &"chest_lleno"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 10.5)
 shape = SubResource("RectangleShape2D_paj10")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_3iqjq")
+
+[connection signal="key_found" from="." to="." method="_on_key_found"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

@@ -42,6 +42,7 @@ size = Vector2(127, 428)
 
 [node name="puerta" type="StaticBody2D"]
 collision_layer = 15
+collision_mask = 3
 script = ExtResource("1_1gytr")
 
 [node name="puerta_cerrada" type="AnimatedSprite2D" parent="."]
@@ -70,9 +71,11 @@ position = Vector2(196, 104)
 shape = SubResource("RectangleShape2D_b24uj")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 3
 
 [node name="CollisiondetectionArea" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(2, 27.5)
+position = Vector2(1, 12)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_pdjvg")
 

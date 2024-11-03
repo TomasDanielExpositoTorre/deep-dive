@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://deln8ocitnfg"]
+
+[ext_resource type="Texture2D" uid="uid://b3rvexc6858ts" path="res://assets/objetos/llave.svg" id="1_5fsy6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3pep"]
+atlas = ExtResource("1_5fsy6")
+region = Rect2(0, 0, 360, 658)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85t6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3pep")
+}],
+"loop": false,
+"name": &"llave",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wwyi3"]
+a = Vector2(15.4011, -23.1016)
+b = Vector2(-23.1016, 61.6043)
+
+[node name="llave" type="StaticBody2D"]
+position = Vector2(48, 54)
+scale = Vector2(0.129861, 0.129861)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-361.925, -415.829)
+scale = Vector2(0.889706, 0.889706)
+sprite_frames = SubResource("SpriteFrames_85t6v")
+animation = &"llave"
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-392.727, -438.931)
+shape = SubResource("SegmentShape2D_wwyi3")

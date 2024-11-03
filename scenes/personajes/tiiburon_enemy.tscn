@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0cp75yt45tp0"]
+[gd_scene load_steps=18 format=3 uid="uid://b0cp75yt45tp0"]
 
 [ext_resource type="Script" path="res://scripts/personajes/tiiburon_enemy.gd" id="1_mrl2c"]
 [ext_resource type="Texture2D" uid="uid://43f48tuoc4dd" path="res://assets/personajes/shark/tiburonAttack.svg" id="2_p46fp"]
@@ -114,14 +114,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2n5xc"]
-radius = 48.8232
-height = 169.762
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfwq7"]
-size = Vector2(1780.88, 7074)
+radius = 43.8925
+height = 203.847
 
 [node name="Tiiburon-enemy" type="CharacterBody2D"]
-collision_mask = 3
+collision_layer = 31
+collision_mask = 15
 script = ExtResource("1_mrl2c")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
@@ -132,17 +130,6 @@ animation = &"tiburonAttack"
 autoplay = "tiburonSwim"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(19.8809, 12.1768)
-rotation = 1.5708
+position = Vector2(26, 9)
+rotation = 1.40674
 shape = SubResource("CapsuleShape2D_2n5xc")
-
-[node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(398, 2204)
-shape = SubResource("RectangleShape2D_bfwq7")
-
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

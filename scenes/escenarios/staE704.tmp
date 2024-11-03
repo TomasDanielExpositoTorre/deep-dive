@@ -311,19 +311,19 @@ position = Vector2(1682, 8039)
 position = Vector2(181, 525)
 
 [node name="Tiiburon-enemy" parent="." instance=ExtResource("10_y78uc")]
-position = Vector2(190, 13562)
+position = Vector2(196, 13509)
 
 [node name="chest" parent="." instance=ExtResource("11_lkmmy")]
 position = Vector2(1156, 1712)
 
 [node name="chest2" parent="." instance=ExtResource("11_lkmmy")]
-position = Vector2(1151, 1058)
+position = Vector2(1123, 7441)
 
 [node name="chest3" parent="." instance=ExtResource("11_lkmmy")]
-position = Vector2(134, 1290)
+position = Vector2(816, 14449)
 
 [node name="puerta" parent="." instance=ExtResource("12_m2cph")]
-position = Vector2(832, 2296)
+position = Vector2(618, 18340)
 
 [node name="llaveCanvaLayer" type="CanvasLayer" parent="."]
 
