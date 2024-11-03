@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=3 uid="uid://sdut3voj6e6k"]
+
+[ext_resource type="Script" path="res://scripts/objetos/puerta.gd" id="1_1gytr"]
+[ext_resource type="Texture2D" uid="uid://dw3x8oq6trwqt" path="res://assets/objetos/puerta_abierta.svg" id="1_2v3op"]
+[ext_resource type="Texture2D" uid="uid://bkuhpaitwuv5c" path="res://assets/objetos/puerta.svg" id="2_mresp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyyld"]
+atlas = ExtResource("1_2v3op")
+region = Rect2(0, 0, 737, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wysyy"]
+atlas = ExtResource("2_mresp")
+region = Rect2(0, 0, 735, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owkf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyyld")
+}],
+"loop": true,
+"name": &"puerta_abierta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wysyy")
+}],
+"loop": true,
+"name": &"puerta_cerrada",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvph6"]
+size = Vector2(427, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b24uj"]
+size = Vector2(36, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdjvg"]
+size = Vector2(127, 428)
+
+[sub_resource type="Animation" id="Animation_lig6o"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("puerta_abierta:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_1dj2i"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("puerta_cerrada:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1glt"]
+_data = {
+"close": SubResource("Animation_1dj2i"),
+"open": SubResource("Animation_lig6o")
+}
+
+[node name="puerta" type="StaticBody2D"]
+collision_layer = 15
+script = ExtResource("1_1gytr")
+
+[node name="puerta_cerrada" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 46)
+scale = Vector2(0.590062, 0.590062)
+sprite_frames = SubResource("SpriteFrames_owkf3")
+animation = &"puerta_cerrada"
+frame_progress = 0.90549
+
+[node name="Collision_puerta_cerrada" type="CollisionShape2D" parent="."]
+position = Vector2(2, 25)
+shape = SubResource("RectangleShape2D_wvph6")
+
+[node name="puerta_abierta" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 106)
+scale = Vector2(0.585055, 0.585055)
+sprite_frames = SubResource("SpriteFrames_owkf3")
+animation = &"puerta_abierta"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-193, 103.5)
+shape = SubResource("RectangleShape2D_b24uj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(196, 104)
+shape = SubResource("RectangleShape2D_b24uj")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisiondetectionArea" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(2, 27.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pdjvg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l1glt")
+}
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

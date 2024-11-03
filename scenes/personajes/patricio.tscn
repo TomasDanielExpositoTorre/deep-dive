@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/personajes/patricio.gd" id="1_sebjl"]
 [ext_resource type="Shader" path="res://scripts/personajes/flicker.gdshader" id="2_fb841"]
-[ext_resource type="Texture2D" uid="uid://dgbwnes2brh8d" path="res://assets/personajes/baja_centrado.png" id="2_fn5vl"]
-[ext_resource type="Texture2D" uid="uid://cdxcatbb7qr8g" path="res://assets/personajes/estatico_centrado.png" id="3_px3dj"]
-[ext_resource type="Texture2D" uid="uid://boajlgas4flmo" path="res://assets/personajes/giratorio_centrado.png" id="4_smcpg"]
-[ext_resource type="Texture2D" uid="uid://b130p36rwptwi" path="res://assets/personajes/sube_centrado.png" id="5_orw4w"]
+[ext_resource type="Texture2D" uid="uid://bb62feq4wcvjq" path="res://assets/personajes/baja_centrado.png" id="2_fn5vl"]
+[ext_resource type="Texture2D" uid="uid://bn5u03rlq2wow" path="res://assets/personajes/estatico_centrado.png" id="3_px3dj"]
+[ext_resource type="Texture2D" uid="uid://cdvpt8hqyaorm" path="res://assets/personajes/giratorio_centrado.png" id="4_smcpg"]
+[ext_resource type="Texture2D" uid="uid://d4apq86lj4kt" path="res://assets/personajes/sube_centrado.png" id="5_orw4w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e1l47"]
 shader = ExtResource("2_fb841")

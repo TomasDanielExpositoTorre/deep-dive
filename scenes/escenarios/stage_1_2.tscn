@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cn2g7l343xdxt"]
+[gd_scene load_steps=25 format=3 uid="uid://cn2g7l343xdxt"]
 
 [ext_resource type="Texture2D" uid="uid://drd5feil7b323" path="res://assets/escenarios/stage-2.png" id="1_trjy3"]
 [ext_resource type="PackedScene" uid="uid://d2ybjyjhxi2ww" path="res://scenes/personajes/patricio.tscn" id="2_1atyj"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bmre6oe8jo8fd" path="res://assets/escenarios/stage-borders.png" id="7_qbp03"]
 [ext_resource type="PackedScene" uid="uid://dubynefjfu342" path="res://scenes/objetos/blob.tscn" id="8_6xdgu"]
 [ext_resource type="PackedScene" uid="uid://cluwj4cr00u8k" path="res://scenes/personajes/pez_2.tscn" id="9_hr2xk"]
+[ext_resource type="PackedScene" uid="uid://b0cp75yt45tp0" path="res://scenes/personajes/tiiburon_enemy.tscn" id="10_y78uc"]
+[ext_resource type="PackedScene" uid="uid://bea3wxw5m68d5" path="res://scenes/objetos/chest.tscn" id="11_lkmmy"]
+[ext_resource type="PackedScene" uid="uid://sdut3voj6e6k" path="res://scenes/objetos/puerta.tscn" id="12_m2cph"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3ov6"]
 distance = 32.0
@@ -51,6 +54,7 @@ polygon = PackedVector2Array(900, 5655, 900, 4618, 894, 4618, 894, 4619.3, 815.6
 [node name="Patricio" parent="." instance=ExtResource("2_1atyj")]
 unique_name_in_owner = true
 position = Vector2(908, 197)
+collision_layer = 3
 collision_mask = 14
 
 [node name="Camera2D" type="Camera2D" parent="Patricio"]
@@ -302,3 +306,18 @@ position = Vector2(1682, 8039)
 
 [node name="PEZ2" parent="." instance=ExtResource("9_hr2xk")]
 position = Vector2(560, 533)
+
+[node name="Tiiburon-enemy" parent="." instance=ExtResource("10_y78uc")]
+position = Vector2(500, 14192)
+
+[node name="chest" parent="." instance=ExtResource("11_lkmmy")]
+position = Vector2(1156, 1712)
+
+[node name="chest2" parent="." instance=ExtResource("11_lkmmy")]
+position = Vector2(1126, 7425)
+
+[node name="chest3" parent="." instance=ExtResource("11_lkmmy")]
+position = Vector2(1555, 14373)
+
+[node name="puerta" parent="." instance=ExtResource("12_m2cph")]
+position = Vector2(815, 2314)

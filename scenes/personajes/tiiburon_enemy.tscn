@@ -1,0 +1,148 @@
+[gd_scene load_steps=19 format=3 uid="uid://b0cp75yt45tp0"]
+
+[ext_resource type="Script" path="res://scripts/personajes/tiiburon_enemy.gd" id="1_mrl2c"]
+[ext_resource type="Texture2D" uid="uid://43f48tuoc4dd" path="res://assets/personajes/shark/tiburonAttack.svg" id="2_p46fp"]
+[ext_resource type="Texture2D" uid="uid://d3y5uvtvh1g8g" path="res://assets/personajes/shark/tiburonSwim.svg" id="3_13fhn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hjr1"]
+atlas = ExtResource("2_p46fp")
+region = Rect2(0, 0, 652, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhc8m"]
+atlas = ExtResource("2_p46fp")
+region = Rect2(652, 0, 652, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl7ck"]
+atlas = ExtResource("2_p46fp")
+region = Rect2(1304, 0, 652, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd27p"]
+atlas = ExtResource("2_p46fp")
+region = Rect2(1956, 0, 652, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq23g"]
+atlas = ExtResource("2_p46fp")
+region = Rect2(2608, 0, 652, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv5h2"]
+atlas = ExtResource("2_p46fp")
+region = Rect2(3260, 0, 652, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clpaq"]
+atlas = ExtResource("3_13fhn")
+region = Rect2(0, 0, 660, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys0ux"]
+atlas = ExtResource("3_13fhn")
+region = Rect2(660, 0, 660, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jomjc"]
+atlas = ExtResource("3_13fhn")
+region = Rect2(1320, 0, 660, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rvip"]
+atlas = ExtResource("3_13fhn")
+region = Rect2(1980, 0, 660, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtgiy"]
+atlas = ExtResource("3_13fhn")
+region = Rect2(2640, 0, 660, 362)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaxpl"]
+atlas = ExtResource("3_13fhn")
+region = Rect2(3300, 0, 660, 362)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ia2nd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hjr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhc8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl7ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd27p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq23g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dv5h2")
+}],
+"loop": true,
+"name": &"tiburonAttack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clpaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys0ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jomjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rvip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtgiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaxpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtgiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rvip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jomjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys0ux")
+}],
+"loop": true,
+"name": &"tiburonSwim",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2n5xc"]
+radius = 48.8232
+height = 169.762
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfwq7"]
+size = Vector2(1780.88, 7074)
+
+[node name="Tiiburon-enemy" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_mrl2c")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.94072, -0.911535)
+scale = Vector2(0.46086, 0.464577)
+sprite_frames = SubResource("SpriteFrames_ia2nd")
+animation = &"tiburonAttack"
+autoplay = "tiburonSwim"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(19.8809, 12.1768)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2n5xc")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(398, 2204)
+shape = SubResource("RectangleShape2D_bfwq7")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
