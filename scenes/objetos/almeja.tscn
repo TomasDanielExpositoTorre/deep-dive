@@ -1,23 +1,123 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg3paloejiei"]
+[gd_scene load_steps=12 format=3 uid="uid://dg3paloejiei"]
 
-[ext_resource type="Script" path="res://scenes/escenarios/almeja.gd" id="1_ctcx5"]
-[ext_resource type="SpriteFrames" uid="uid://cclbup2crggyl" path="res://assets/objetos/almeja.tres" id="2_8lo8b"]
+[ext_resource type="Script" path="res://scripts/objetos/almeja.gd" id="1_6571o"]
+[ext_resource type="Texture2D" uid="uid://urn84gbhq4cp" path="res://assets/objetos/almeja2.png" id="1_q2stk"]
+[ext_resource type="Texture2D" uid="uid://i18p5wnv1jqg" path="res://assets/objetos/almeja3.png" id="2_7yalw"]
+[ext_resource type="Texture2D" uid="uid://cjfh8040cwi1a" path="res://assets/objetos/almeja1.png" id="3_spjsd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8t0e"]
-radius = 38.71
+radius = 214.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu7lk"]
+atlas = ExtResource("1_q2stk")
+region = Rect2(0, 0, 63, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fudo4"]
+atlas = ExtResource("1_q2stk")
+region = Rect2(0, 0, 63, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aoux"]
+atlas = ExtResource("2_7yalw")
+region = Rect2(0, 0, 63, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ip6"]
+atlas = ExtResource("1_q2stk")
+region = Rect2(0, 0, 63, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riw7a"]
+atlas = ExtResource("3_spjsd")
+region = Rect2(0, 0, 63, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_brkq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu7lk")
+}],
+"loop": true,
+"name": &"cerrada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fudo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fudo4")
+}],
+"loop": true,
+"name": &"premio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ip6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ip6")
+}],
+"loop": true,
+"name": &"vacia",
+"speed": 5.0
+}]
 
 [node name="Almeja" type="Area2D"]
 top_level = true
+z_index = -1
 position = Vector2(133, 611)
 disable_mode = 1
-script = ExtResource("1_ctcx5")
-metadata/_edit_group_ = true
+script = ExtResource("1_6571o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n8t0e")
-disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
-sprite_frames = ExtResource("2_8lo8b")
-animation = &"cerrada"
+sprite_frames = SubResource("SpriteFrames_brkq6")
+animation = &"vacia"
+autoplay = "cerrada"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

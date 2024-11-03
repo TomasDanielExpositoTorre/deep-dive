@@ -59,7 +59,10 @@ func remove_health():
 		lives.take_damage()
 		vulnerable = false
 		invincibility_timer.start()
-		
+
+func is_max_health():
+	return lives.healthbar.value == lives.healthbar.max_value
+	
 func restore_health():
 	"""
 	Heal one damage

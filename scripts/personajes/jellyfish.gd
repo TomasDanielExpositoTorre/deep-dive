@@ -59,3 +59,8 @@ func _on_detection_area_body_exited(_body: Node2D) -> void:
 func _on_animation_finished() -> void:
 	if sprite.animation == "attack-buildup" and player_detected:
 		sprite.play("attack")
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if "remove_health" in body:
+		body.remove_health()

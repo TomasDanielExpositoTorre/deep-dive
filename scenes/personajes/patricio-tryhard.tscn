@@ -52,7 +52,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bwpat")
 }],
 "loop": true,
-"name": &"machine gun",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -73,13 +73,13 @@ script = ExtResource("1_8vspi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_l84re")
-position = Vector2(2, -3)
+position = Vector2(-48, -21)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_1y4k5")
-animation = &"machine gun"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -6)
+position = Vector2(-49, -22)
 shape = SubResource("CapsuleShape2D_abd4y")
 
 [node name="InvincibilityTimer" type="Timer" parent="."]

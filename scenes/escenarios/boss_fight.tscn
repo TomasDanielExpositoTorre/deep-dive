@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://djtu0d2sb2beg"]
+[gd_scene load_steps=8 format=3 uid="uid://djtu0d2sb2beg"]
 
 [ext_resource type="Texture2D" uid="uid://daiooa0gw01ja" path="res://assets/escenarios/fondo_de_bikini.png" id="1_biglg"]
 [ext_resource type="PackedScene" uid="uid://c4nvmu6pm2yly" path="res://scenes/objetos/lives.tscn" id="2_545hm"]
@@ -6,7 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://4wapmx0jm877" path="res://scenes/personajes/plankton.tscn" id="3_o7qxb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m80is"]
-distance = -180.0
+distance = -95.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xikg6"]
+bg_color = Color(0.0235294, 0.0235294, 0.0235294, 0.670588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1hdb"]
+bg_color = Color(0.483266, 0.0553308, 0.171809, 1)
 
 [node name="BossFight" type="Node2D"]
 
@@ -30,11 +36,31 @@ shape = SubResource("WorldBoundaryShape2D_m80is")
 
 [node name="Fixed" type="CanvasLayer" parent="."]
 
+[node name="BossName" type="TextEdit" parent="Fixed"]
+unique_name_in_owner = true
+offset_left = 474.0
+offset_top = 562.0
+offset_right = 673.0
+offset_bottom = 597.0
+text = "Plankton el malo maloso"
+
+[node name="BossBar" type="ProgressBar" parent="Fixed"]
+unique_name_in_owner = true
+offset_left = 30.0
+offset_top = 601.0
+offset_right = 1125.0
+offset_bottom = 628.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xikg6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b1hdb")
+max_value = 40.0
+value = 3.0
+show_percentage = false
+
 [node name="Lives" parent="Fixed" instance=ExtResource("2_545hm")]
 unique_name_in_owner = true
 
 [node name="Patricio-tryhard" parent="." instance=ExtResource("2_gurhi")]
-position = Vector2(56, 311)
+position = Vector2(207, 326)
 
 [node name="Plankton" parent="." instance=ExtResource("3_o7qxb")]
-position = Vector2(545, 41)
+position = Vector2(929, 319)

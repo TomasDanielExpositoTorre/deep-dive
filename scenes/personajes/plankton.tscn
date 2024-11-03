@@ -1,8 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://4wapmx0jm877"]
+[gd_scene load_steps=13 format=3 uid="uid://4wapmx0jm877"]
 
 [ext_resource type="Script" path="res://scripts/personajes/plankton.gd" id="1_d402k"]
 [ext_resource type="Texture2D" uid="uid://cckb8bmfqjou7" path="res://assets/personajes/planktonidl.png" id="1_od0vk"]
+[ext_resource type="Shader" path="res://scripts/personajes/flicker.gdshader" id="2_f4c6c"]
 [ext_resource type="Texture2D" uid="uid://dwfqojoq78k35" path="res://assets/personajes/plankton_dispara.png" id="3_gt8ka"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qv1v"]
+shader = ExtResource("2_f4c6c")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/amount = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vomy"]
 atlas = ExtResource("1_od0vk")
@@ -66,12 +72,20 @@ height = 72.0
 script = ExtResource("1_d402k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(527, 249)
+material = SubResource("ShaderMaterial_5qv1v")
+position = Vector2(53, 9)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_mvlhj")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(547, 233)
+position = Vector2(74, -9)
 shape = SubResource("CapsuleShape2D_nqnb1")
+
+[node name="RayCastUP" type="RayCast2D" parent="."]
+position = Vector2(73, -7)
+rotation = 3.14159
+
+[node name="RayCastDOWN" type="RayCast2D" parent="."]
+position = Vector2(73, -7)
