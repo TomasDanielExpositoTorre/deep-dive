@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bea3wxw5m68d5"]
+[gd_scene load_steps=8 format=3 uid="uid://bea3wxw5m68d5"]
 
 [ext_resource type="Texture2D" uid="uid://baqagk5ny1s74" path="res://assets/objetos/chest.svg" id="1_75g3p"]
-[ext_resource type="Script" path="res://scripts/objetos/chest.gd" id="1_tg78v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdp3g"]
 atlas = ExtResource("1_75g3p")
@@ -55,7 +54,6 @@ size = Vector2(80, 61)
 
 [node name="chest" type="StaticBody2D"]
 collision_layer = 15
-script = ExtResource("1_tg78v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
