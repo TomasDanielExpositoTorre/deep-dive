@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bov6764p1k8qo"]
+
+[ext_resource type="PackedScene" uid="uid://cluwj4cr00u8k" path="res://scenes/personajes/pez_2.tscn" id="1_qykge"]
+[ext_resource type="Script" path="res://scripts/pez1.gd" id="2_xw26d"]
+[ext_resource type="Script" path="res://scripts/pez2.gd" id="3_bs07v"]
+[ext_resource type="Script" path="res://scripts/pez3.gd" id="4_ui834"]
+[ext_resource type="Script" path="res://scripts/pez4.gd" id="5_x8amq"]
+
+[node name="Peces" type="Node"]
+
+[node name="PEZ1" parent="." instance=ExtResource("1_qykge")]
+position = Vector2(560, 533)
+motion_mode = 1
+script = ExtResource("2_xw26d")
+
+[node name="PEZ2" parent="." instance=ExtResource("1_qykge")]
+position = Vector2(560, 533)
+motion_mode = 1
+script = ExtResource("3_bs07v")
+speed = 220
+
+[node name="PEZ3" parent="." instance=ExtResource("1_qykge")]
+position = Vector2(560, 533)
+motion_mode = 1
+script = ExtResource("4_ui834")
+speed = 230
+
+[node name="PEZ4" parent="." instance=ExtResource("1_qykge")]
+position = Vector2(560, 533)
+motion_mode = 1
+script = ExtResource("5_x8amq")
+speed = 240

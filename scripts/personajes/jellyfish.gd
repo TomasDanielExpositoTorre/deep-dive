@@ -61,5 +61,5 @@ func _on_animation_finished() -> void:
 		sprite.play("attack")
 
 
-func _on_body_entered(body: Player) -> void:
+func _on_body_entered(body) -> void:
 	body.remove_health()

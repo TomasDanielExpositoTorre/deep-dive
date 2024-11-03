@@ -7,4 +7,3 @@ void fragment() {
 	vec3 original_color = texture(TEXTURE, UV).rgb;
 	COLOR.rgb = mix(original_color, color, amount);
 }
-

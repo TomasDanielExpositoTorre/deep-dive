@@ -18,33 +18,15 @@ func _physics_process(delta: float) -> void:
 	"""
 	Handle player movement
 	"""
-	var direction := Input.get_vector("move_left", "move_right", "move_down", "move_up")
-	
-	# Horizontal Movement
-	if direction.x: 
-		velocity.x = direction.x * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	var direction := Input.get_axis("move_down", "move_up")
+
 	# Vertical Movement
-	if direction.y: 
-		velocity.y = -direction.y * SPEED
+	if direction: 
+		velocity.y = -direction * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		
-	# Apply animations
-	if direction.x < 0:
-		sprite.flip_h = true
-		sprite.play("spin")
-	elif direction.x > 0:
-		sprite.flip_h = false
-		sprite.play("spin")
-	elif direction.y < 0:
-		sprite.play("down")
-	elif direction.y > 0:
-		sprite.play("up")
-	else:
-		sprite.play("idle")
-		
+
+	sprite.play("machine gun")	
 	move_and_slide()
 
 
