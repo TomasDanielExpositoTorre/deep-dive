@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 200 
 @export var chase_distance = 1000.0  # Distance at which the shark will start chasing
-@export var attack_range = 200.0     # Range within which the shark attacks
+@export var attack_range = 150.0     # Range within which the shark attacks
 @export var rotation_speed: float = 5.0  # Controls the smoothness of rotation
 
 var player_chase = false
@@ -13,17 +13,12 @@ var direction_vector: Vector2 = Vector2.ZERO
 
 func _ready():
 	# Find the player node, specifically "Patricio"
-	player = get_parent().get_node_or_null("Patricio")
-	if player:
-		print("Patricio found:", player)
-	else:
-		print("Patricio not found")
+	player = %Patricio
 
 func _physics_process(delta):
 	if player:
 		# Calculate the distance to Patricio
 		var distance_to_player = player.position.distance_to(position)
-		print("Distance to Patricio:", distance_to_player)
 
 		if distance_to_player <= chase_distance:
 			player_chase = true
@@ -39,7 +34,7 @@ func chase(delta):
 	# Calculate the direction towards Patricio and move
 	direction_vector = (player.position - position).normalized()
 	position += direction_vector * speed * delta
-	print("Shark Position:", position)
+	move_and_slide()
 
 func tiburonAnimation(distance_to_player, delta):
 	# Choose the animation based on the distance to Patricio

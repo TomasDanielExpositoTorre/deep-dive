@@ -9,6 +9,8 @@ var vulnerable := true
 @onready var lives: Lives = %Lives
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var invincibility_timer: Timer = $InvincibilityTimer
+@onready var light: PointLight2D = $Light
+@onready var darkness: CanvasModulate = %Darkness
 
 
 """
@@ -20,6 +22,19 @@ func _physics_process(delta: float) -> void:
 	"""
 	var direction := Input.get_vector("move_left", "move_right", "move_down", "move_up")
 	
+	if position.y < 7000:
+		light.texture_scale = 0.25
+		light.energy = 1
+		darkness.color = Color(0.3, 0.3, 0.3, 1)
+	elif position.y < 14000:
+		light.texture_scale = 0.2
+		light.energy = 0.85
+		darkness.color = Color(0.22, 0.22, 0.22, 1)
+	else:
+		light.texture_scale = 0.15
+		light.energy = 0.7
+		darkness.color = Color(0.15, 0.15, 0.15, 1)
+		
 	# Horizontal Movement
 	if direction.x: 
 		velocity.x = direction.x * SPEED

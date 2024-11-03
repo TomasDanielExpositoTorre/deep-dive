@@ -2,7 +2,8 @@
 extends Node2D
 
 @onready var chests: Array = [$chest, $chest2, $chest3]  
-@onready var llave: StaticBody2D = $llaveCanvaLayer/llave  
+@onready var llave: StaticBody2D = $Fixed/llave
+
 
 var main_menu_scene = preload("res://scenes/mainmenu/main_menu.tscn") as PackedScene  #
 var main_menu_instance: Control = null  
@@ -22,7 +23,7 @@ func set_random_key_chest():
 		if i == key_chest_index:
 			chests[i].is_key_chest = true  
 		else:
-			chests[i].is_key_chest = false 
+			chests[i].is_key_chest = false
 
 func _on_key_found():
 	llave.get_node("AnimatedSprite2D").visible = true

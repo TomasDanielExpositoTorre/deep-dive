@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d2ybjyjhxi2ww"]
+[gd_scene load_steps=37 format=3 uid="uid://d2ybjyjhxi2ww"]
 
 [ext_resource type="Script" path="res://scripts/personajes/patricio.gd" id="1_sebjl"]
 [ext_resource type="Shader" path="res://scripts/personajes/flicker.gdshader" id="2_fb841"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bn5u03rlq2wow" path="res://assets/personajes/estatico_centrado.png" id="3_px3dj"]
 [ext_resource type="Texture2D" uid="uid://cdvpt8hqyaorm" path="res://assets/personajes/giratorio_centrado.png" id="4_smcpg"]
 [ext_resource type="Texture2D" uid="uid://d4apq86lj4kt" path="res://assets/personajes/sube_centrado.png" id="5_orw4w"]
+[ext_resource type="Texture2D" uid="uid://dixd5m0wa26cw" path="res://assets/objetos/LightSprite.png" id="7_lscvq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e1l47"]
 shader = ExtResource("2_fb841")
@@ -253,5 +254,14 @@ shape = SubResource("CapsuleShape2D_kottg")
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(3.05176e-05, 1.19209e-07)
+scale = Vector2(11.202, 11.202)
+blend_mode = 2
+range_item_cull_mask = 15
+shadow_enabled = true
+texture = ExtResource("7_lscvq")
+texture_scale = 0.25
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

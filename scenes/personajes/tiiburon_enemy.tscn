@@ -1,8 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0cp75yt45tp0"]
+[gd_scene load_steps=20 format=3 uid="uid://b0cp75yt45tp0"]
 
 [ext_resource type="Script" path="res://scripts/personajes/tiiburon_enemy.gd" id="1_mrl2c"]
 [ext_resource type="Texture2D" uid="uid://43f48tuoc4dd" path="res://assets/personajes/shark/tiburonAttack.svg" id="2_p46fp"]
 [ext_resource type="Texture2D" uid="uid://d3y5uvtvh1g8g" path="res://assets/personajes/shark/tiburonSwim.svg" id="3_13fhn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_68ocq"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k2e33"]
+light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hjr1"]
 atlas = ExtResource("2_p46fp")
@@ -113,23 +119,30 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2n5xc"]
-radius = 43.8925
-height = 203.847
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yhys"]
+radius = 51.0
+height = 142.0
 
 [node name="Tiiburon-enemy" type="CharacterBody2D"]
-collision_layer = 31
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_68ocq")
+collision_layer = 16
 collision_mask = 15
+motion_mode = 1
 script = ExtResource("1_mrl2c")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_k2e33")
 position = Vector2(0.94072, -0.911535)
 scale = Vector2(0.46086, 0.464577)
 sprite_frames = SubResource("SpriteFrames_ia2nd")
-animation = &"tiburonAttack"
+animation = &"tiburonSwim"
 autoplay = "tiburonSwim"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(26, 9)
-rotation = 1.40674
-shape = SubResource("CapsuleShape2D_2n5xc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 14)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4yhys")
