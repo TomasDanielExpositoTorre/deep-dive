@@ -13,3 +13,7 @@ func start():
 func stop():
 	is_stopped = true
 	
+func reset():
+	time = 0.0
+	is_stopped = true
+	

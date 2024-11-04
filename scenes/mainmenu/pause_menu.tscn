@@ -1,0 +1,208 @@
+[gd_scene load_steps=12 format=3 uid="uid://saqlny28ilc2"]
+
+[ext_resource type="Script" path="res://scripts/mainmenu/pause_menu.gd" id="1_71d4a"]
+[ext_resource type="Shader" path="res://assets/escenarios/pausemenu.gdshader" id="1_odbeu"]
+[ext_resource type="Texture2D" uid="uid://nuyn2wfxj7sa" path="res://assets/escenarios/pausemenu.svg" id="2_6w5nd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmkmq"]
+shader = ExtResource("1_odbeu")
+shader_parameter/lod = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2p2b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e215o"]
+shader = ExtResource("1_odbeu")
+shader_parameter/lod = 0.0
+
+[sub_resource type="SystemFont" id="SystemFont_nob6a"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_on058"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="Animation" id="Animation_23fva"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2s2rh"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.966]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ke80b"]
+_data = {
+"RESET": SubResource("Animation_23fva"),
+"blur": SubResource("Animation_2s2rh")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_rmkmq")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_71d4a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_o2p2b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 116.0
+offset_right = -247.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6w5nd")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+material = SubResource("ShaderMaterial_e215o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0.341176, 0.584314, 0.47451)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_nob6a")
+theme_override_font_sizes/font_size = 52
+text = "DEEP DIVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.862745)
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator6" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(205, 20)
+layout_mode = 2
+size_flags_stretch_ratio = 9.28
+theme_override_fonts/font = SubResource("SystemFont_on058")
+theme_override_font_sizes/font_size = 18
+text = "RESUME"
+
+[node name="restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_on058")
+theme_override_font_sizes/font_size = 18
+text = "RESTART"
+
+[node name="save" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_on058")
+theme_override_font_sizes/font_size = 18
+text = "SAVE"
+
+[node name="exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_on058")
+theme_override_font_sizes/font_size = 18
+text = "EXIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ke80b")
+}
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
