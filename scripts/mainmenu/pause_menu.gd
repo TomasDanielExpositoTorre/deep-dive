@@ -1,7 +1,9 @@
 extends Control
 
-@onready var game_save_manager = get_node("res://scripts/game_save/GameSaveManager.gd")
-@onready var player = get_node("res://scenes/personajes/patricio.tscn")
+#@onready var game_save_manager = get_node("res://scripts/game_save/GameSaveManager.gd")
+@onready var player = preload ("res://scenes/escenarios/stage_1_2.tscn")
+@onready var livessdsd = %Lives
+#get_node("res://scenes/personajes/patricio.tscn")
 @export var game_time = 0 
 
 var main_menu_scene = preload("res://scenes/mainmenu/main_menu.tscn")
@@ -31,7 +33,14 @@ func _on_restart_pressed():
 	get_tree().reload_current_scene()
 
 func _on_save_pressed():
-	game_save_manager.save_game(player, game_time)
+	#var info = player.get_save_data()
+	#GameSaveManager.save_game(info)
+	GlobalTimer.stop()
+	var metadata = {"time": GlobalTimer.time,"lives": Lifecounter.lives, "barra": livessdsd.healthbar}
+	GameSaveManager.save_game(metadata)
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(get_tree().get_current_scene())
+	ResourceSaver.save(packed_scene, 	"res://game_save.tscn")
 
 func _on_exit_pressed():
 	get_tree().paused = false 

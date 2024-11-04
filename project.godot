@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Lifecounter="*res://scripts/objetos/lifecounter.gd"
 GlobalTimer="*res://scripts/mainmenu/global_timer.gd"
+GameSaveManager="*res://scripts/game_save/GameSaveManager.gd"
 
 [display]
 

@@ -15,7 +15,7 @@ Class functions
 """
 func _ready() -> void:
 	set_health(5)
-
+	
 func set_health(h):
 	"""
 	Sets number of hits per life in the health bar.
