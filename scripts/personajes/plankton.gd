@@ -2,9 +2,8 @@ extends CharacterBody2D
 
 const SPEED = 150
 const SHOOT_INTERVAL = .7
-const INITIAL_HEALTH = 40
 const SHOOT_FRAME_DURATION = 0.2
-var health = INITIAL_HEALTH
+var health = Lifecounter.plankton_health
 var direction = 1
 var is_shooting = false
 @onready var shooting_sound: AudioStreamPlayer2D = $Shooting
@@ -19,7 +18,7 @@ var is_shooting = false
 @onready var boss_name: TextEdit = %BossName
 @onready var hurt: AudioStreamPlayer2D = $Hurt
 @onready var dead: AudioStreamPlayer2D = $Dead
-
+@onready var final_screen: Control = %"Final-screen"
 
 func _ready():
 	shoot_timer.wait_time = SHOOT_INTERVAL
@@ -31,7 +30,6 @@ func _ready():
 	frame_timer.one_shot = true
 	frame_timer.timeout.connect(_on_frame_timer_timeout)
 
-	health_bar.max_value = INITIAL_HEALTH
 	health_bar.value = health
 
 func _physics_process(delta):
@@ -77,10 +75,15 @@ func remove_health():
 	health -= 1
 	health_bar.value = health 
 	if health <= 0:
+		GlobalTimer.stop()
 		health_bar.hide()
 		boss_name.hide()
 		dead.play()
 		await get_tree().create_timer(2.1).timeout
 		queue_free()
+		final_screen.print_score()
+		#Lifecounter.current_health = %Lives.healthbar.value
+		#Lifecounter.max_health = %Lives.healthbar.max_value
+		#get_tree().change_scene_to_file("res://scenes/escenarios/final-screen.tscn")
 	else:
 		hurt.play()

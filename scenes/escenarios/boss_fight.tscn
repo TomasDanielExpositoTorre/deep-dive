@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://djtu0d2sb2beg"]
+[gd_scene load_steps=13 format=3 uid="uid://djtu0d2sb2beg"]
 
 [ext_resource type="Texture2D" uid="uid://daiooa0gw01ja" path="res://assets/escenarios/fondo_de_bikini.png" id="1_biglg"]
+[ext_resource type="PackedScene" path="res://scenes/mainmenu/pause_menu.tscn" id="2_18way"]
 [ext_resource type="PackedScene" uid="uid://c4nvmu6pm2yly" path="res://scenes/objetos/lives.tscn" id="2_545hm"]
 [ext_resource type="PackedScene" uid="uid://cuy6cf1nj0y8d" path="res://scenes/personajes/patricio-tryhard.tscn" id="2_gurhi"]
+[ext_resource type="PackedScene" uid="uid://cj6w1yel87f2o" path="res://scenes/escenarios/final-screen.tscn" id="2_w5jn0"]
 [ext_resource type="PackedScene" uid="uid://b3tdbq5vs0b1y" path="res://scenes/escenarios/timer_label.tscn" id="2_wgm4x"]
 [ext_resource type="PackedScene" uid="uid://4wapmx0jm877" path="res://scenes/personajes/plankton.tscn" id="3_o7qxb"]
+[ext_resource type="PackedScene" uid="uid://b55bbdep2scwo" path="res://scenes/escenarios/losing-screen.tscn" id="4_bdd5y"]
 [ext_resource type="AudioStream" uid="uid://bjkbct60pn7pg" path="res://assets/music/Spongebob soundtrack_Plankton's theme(Chill out).mp3" id="5_enceu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m80is"]
@@ -37,6 +40,16 @@ rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_m80is")
 
 [node name="Fixed" type="CanvasLayer" parent="."]
+
+[node name="Final-screen" parent="Fixed" instance=ExtResource("2_w5jn0")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PauseMenu" parent="Fixed" instance=ExtResource("2_18way")]
+unique_name_in_owner = true
+
+[node name="Losing-screen" parent="Fixed" instance=ExtResource("4_bdd5y")]
+unique_name_in_owner = true
 
 [node name="TimerLabel" parent="Fixed" instance=ExtResource("2_wgm4x")]
 offset_left = 550.0
@@ -71,6 +84,7 @@ unique_name_in_owner = true
 position = Vector2(207, 326)
 
 [node name="Plankton" parent="." instance=ExtResource("3_o7qxb")]
+unique_name_in_owner = true
 position = Vector2(929, 319)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

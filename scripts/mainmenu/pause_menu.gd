@@ -36,7 +36,14 @@ func _on_save_pressed():
 	#var info = player.get_save_data()
 	#GameSaveManager.save_game(info)
 	GlobalTimer.stop()
-	var metadata = {"time": GlobalTimer.time,"lives": Lifecounter.lives, "barra": livessdsd.healthbar}
+	var metadata = {}
+	if get_tree().current_scene.name == "Stage1-2":
+		metadata = {"time": GlobalTimer.time,"lives": Lifecounter.lives, "barra": livessdsd.healthbar.value, "name": "stage"}
+	else:
+		var plankton: CharacterBody2D = %Plankton
+		metadata = {"time": GlobalTimer.time,"lives": Lifecounter.lives, "barra": livessdsd.healthbar.value, "barra-plankton": plankton.health, "name": "bossfight"}
+	
+	print(get_tree().current_scene.name)
 	GameSaveManager.save_game(metadata)
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(get_tree().get_current_scene())

@@ -21,12 +21,16 @@ func on_exit_pressed() -> void:
 func _on_load_button_pressed() -> void:
 	GlobalTimer.start()
 	# Load the PackedScene resource
-	var packed_scene = load("res://game_save.tscn")
-	# Instance the scene
-	var my_scene = packed_scene
-	get_tree().change_scene_to_packed(my_scene)
 	var metadata = GameSaveManager.load_game()
 	GlobalTimer.time = metadata["time"]
 	Lifecounter.lives = metadata["lives"]
+	Lifecounter.current_health = metadata["barra"]
 	
+	# Instance the scene
+	var packed_scene = load("res://game_save.tscn")
+	var my_scene = packed_scene
 	
+	get_tree().change_scene_to_packed(my_scene)
+	
+	if metadata["name"] != "stage":
+		Lifecounter.plankton_health = metadata["barra-plankton"]

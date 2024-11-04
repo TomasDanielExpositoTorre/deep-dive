@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://3prtlu84dtgw"]
+
+[ext_resource type="Script" path="res://scripts/escenarios/losing_screen.gd" id="1_ollb8"]
+[ext_resource type="Texture2D" uid="uid://comi54dwhmwok" path="res://assets/escenarios/menu_background.jpg" id="2_ytcqx"]
+
+[sub_resource type="SystemFont" id="SystemFont_66s4q"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_xaole"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="Losing-screen" type="Control"]
+process_mode = 3
+z_index = 25
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_ollb8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ytcqx")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 404.0
+offset_right = 854.0
+offset_bottom = 454.0
+theme_override_fonts/font = SubResource("SystemFont_66s4q")
+theme_override_font_sizes/font_size = 40
+text = "You couldn't save your friends..."
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 247.0
+offset_right = 708.0
+offset_bottom = 309.0
+theme_override_fonts/font = SubResource("SystemFont_xaole")
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 520.0
+offset_right = 718.0
+offset_bottom = 573.0
+text = "BACK TO MAIN MENU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

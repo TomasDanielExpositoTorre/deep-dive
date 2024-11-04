@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cn2g7l343xdxt"]
+[gd_scene load_steps=37 format=3 uid="uid://cn2g7l343xdxt"]
 
 [ext_resource type="Script" path="res://scripts/escenarios/stage_1_2.gd" id="1_j48tj"]
 [ext_resource type="Texture2D" uid="uid://drd5feil7b323" path="res://assets/escenarios/stage-2.png" id="1_trjy3"]
@@ -20,10 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://dubynefjfu342" path="res://scenes/objetos/blob.tscn" id="17_oveoc"]
 [ext_resource type="PackedScene" uid="uid://b3tdbq5vs0b1y" path="res://scenes/escenarios/timer_label.tscn" id="19_t064m"]
 [ext_resource type="AudioStream" uid="uid://dkywsofwxuk1e" path="res://assets/music/What Lies Beneath - Underwater horror ambiance.mp3" id="20_peg3u"]
-[ext_resource type="PackedScene" uid="uid://saqlny28ilc2" path="res://scenes/mainmenu/pause_menu.tscn" id="21_40ioa"]
+[ext_resource type="PackedScene" path="res://scenes/mainmenu/pause_menu.tscn" id="21_40ioa"]
+[ext_resource type="Script" path="res://scripts/escenarios/level_change.gd" id="22_f5bti"]
 
 [sub_resource type="SystemFont" id="SystemFont_7wfoo"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l3ov6"]
 distance = 32.0
@@ -61,12 +63,15 @@ polygon = PackedVector2Array(-884.5, 4140, -900, 4130.7, -900, 9276.1, -899.4, 9
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_skve8"]
 polygon = PackedVector2Array(900, 5655, 900, 4618, 894, 4618, 894, 4619.3, 815.6, 4635, 812.4, 4635, 801.4, 4642, 799.2, 4642, 784, 4657.2, 784, 4658, 778.9, 4658, 776.9, 4661, 775.6, 4661, 757.6, 4716, 756.4, 4716, 741, 4779.8, 741, 4784.5, 721, 4838.6, 721, 4842.2, 676, 4894.3, 676, 4896.1, 647, 4924.2, 647, 4925.1, 600, 4966.1, 600, 4966.7, 588.5, 4973, 586.8, 4973, 564.8, 5016, 562.6, 5016, 564, 5023.4, 564, 5024.5, 544.6, 5079, 543.4, 5079, 535, 5115.8, 535, 5119.5, 530, 5129.5, 530, 5131.4, 484, 5198.4, 484, 5200.2, 475.2, 5209, 473.9, 5209, 442, 5263.5, 421, 5279, 405.6, 5285, 402, 5285, 397, 5292, 395.5, 5292, 390.5, 5311, 389, 5311, 389, 5319, 393, 5322, 393, 5324.1, 402, 5330.1, 402, 5333.2, 408.5, 5330, 412.6, 5330, 423.6, 5334, 427.5, 5334, 435, 5338.1, 435, 5339.4, 469.7, 5351, 472.5, 5351, 489, 5360.1, 489, 5363, 496.5, 5360, 498.5, 5360, 509, 5366.1, 509, 5368.2, 572, 5362.8, 575.7, 5364, 578, 5364, 581, 5367.7, 581, 5369.2, 591.5, 5375, 593.1, 5375, 606.2, 5387, 608.1, 5387, 627.1, 5409, 628, 5409, 675, 5477, 675.8, 5477, 689, 5501.5, 689, 5503.6, 706, 5527.6, 706, 5529.7, 728, 5559, 730.7, 5559, 741, 5577.6, 741, 5579.8, 751, 5590.7, 751, 5592.3, 775, 5602.3, 775, 5603.5, 834.7, 5622, 837.4, 5622, 898.5, 5655)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svrtg"]
+size = Vector2(1969, 281)
+
 [node name="Stage1-2" type="Node2D"]
 script = ExtResource("1_j48tj")
 
 [node name="Patricio" parent="." instance=ExtResource("2_1atyj")]
 unique_name_in_owner = true
-position = Vector2(848, 506)
+position = Vector2(689, 185)
 collision_layer = 3
 collision_mask = 14
 
@@ -418,3 +423,14 @@ max_distance = 200000.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_40ioa")]
+unique_name_in_owner = true
+
+[node name="LevelChange" type="Area2D" parent="."]
+position = Vector2(467, 19688)
+script = ExtResource("22_f5bti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelChange"]
+position = Vector2(443.5, 179.5)
+shape = SubResource("RectangleShape2D_svrtg")
+
+[connection signal="body_entered" from="LevelChange" to="LevelChange" method="_on_body_entered"]

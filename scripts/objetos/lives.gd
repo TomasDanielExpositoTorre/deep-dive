@@ -1,5 +1,6 @@
 extends Node
 class_name Lives
+@onready var losing_screen: Control = %"Losing-screen"
 
 """
 Class values
@@ -9,6 +10,7 @@ Class values
 @onready var life_1: Sprite2D = $Life1
 @onready var life_2: Sprite2D = $Life2
 @onready var life_3: Sprite2D = $Life3
+var printing_results = false
 
 """
 Class functions
@@ -21,7 +23,7 @@ func set_health(h):
 	Sets number of hits per life in the health bar.
 	"""
 	healthbar.max_value = h
-	healthbar.value = h
+	healthbar.value = Lifecounter.current_health
 	healthbar.min_value = 0
 	
 func take_damage():
@@ -38,8 +40,12 @@ func take_damage():
 		healthbar.value = healthbar.max_value
 		get_tree().reload_current_scene()
 	# U is ded
-	elif healthbar.value == 0:
-		print("You lost the game my pana")
+	elif healthbar.value == 0 and printing_results == false:
+		printing_results = true
+		if get_tree().current_scene.name == "Stage1-2":
+			get_tree().change_scene_to_file("res://scenes/escenarios/losing-screen2.tscn")
+		else:
+			losing_screen.print_score()
 		
 func heal_damage():
 	"""
